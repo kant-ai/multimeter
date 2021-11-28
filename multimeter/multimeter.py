@@ -26,14 +26,14 @@ class Multimeter:
         >>> measurement.end()
         >>> result = measurement.result
 
-    Alternatively, `Measurement` can be used as a context manager:
+    Alternatively, `Measurement` can be used as a context manager, that returns the
+    result:
 
     Example:
         >>> multimeter = Multimeter(ResourceProbe())
-        >>> with multimeter.measure() as measurement:
+        >>> with multimeter.measure() as result:
         ...     here_my_code_to_be_measured()
         ...
-        >>> result = measurement.result
     """
 
     def __init__(self, *probes, cycle_time=1.0, storage=DummyStorage()):
@@ -41,7 +41,7 @@ class Multimeter:
         Create a new multi meter.
 
         Args:
-            *probes(multimeter.probe.Probe): A list of probes that measure.
+            *probes (multimeter.probe.Probe): A list of probes that measure.
             cycle_time (float): The time in seconds between two measure points.
                 Defaults to `1.0`. which means measure every second.
             storage (multimeter.storage.Storage): A instance of `Storage` that takes
@@ -52,16 +52,20 @@ class Multimeter:
         self._probes = [*probes]
         self._storage = storage
 
-    def measure(self, **kwargs):
+    def measure(self, identifier=None, **labels):
         """
+        Create a new measurement based on the multimeters configuration.
 
         Args:
-            **kwargs:
+            identifier (str): The (unique) identifier for this measurement.
+            **labels (Dict[str,str]): Optional user-defined labels, that can be used
+                later for identifying the measurement.
 
         Returns:
-
+            multimeter.measurement.Measurement: The new measurement object which is
+                used for starting and ending the process.
         """
-        return Measurement(self, **kwargs)
+        return Measurement(self, identifier, **labels)
 
     @property
     def probes(self):

@@ -1,6 +1,32 @@
 """Contains classes for representing the results of a measurement"""
 
 
+class Point:
+    """
+    Class that contains the values of a single measurement point.
+
+    Attributes:
+        datetime (datetime.datetime): The timestamp in UTC.
+        values (dict[string, any]): The
+    """
+
+    __slots__ = [
+        'datetime',
+        'values',
+    ]
+
+    def __init__(self, datetime, values):
+        self.datetime = datetime
+        self.values = values
+
+    def __repr__(self):
+        return f"Point({repr(self.datetime)}, {repr(self.values)})"
+
+    def __str__(self):
+        datetime_str = self.datetime.isoformat(timespec='milliseconds')
+        return f"Point('{datetime_str}', {self.values})"
+
+
 class Result:
     """
     Class representing results of a measurement.
@@ -19,7 +45,7 @@ class Result:
             contain the measured values with their timestamp.
     """
 
-    def __init__(self, identifier=None, labels=None):
+    def __init__(self, *probes, identifier=None, labels=None):
         self.identifier = identifier
         self.labels = labels or {}
         self.meta = {}
@@ -27,6 +53,10 @@ class Result:
         self.subjects = []
         self.measures = []
         self.points = []
+        for probe in probes:
+            self._add_metrics(probe.metrics)
+            self._add_subjects(probe.subjects)
+            self._add_measures(probe.measures)
 
     def add_meta_data(self, **meta_data):
         """
@@ -41,7 +71,7 @@ class Result:
         """
         self.meta.update(**meta_data)
 
-    def add_metrics(self, metrics):
+    def _add_metrics(self, metrics):
         """
         Adds new metrics to the result.
 
@@ -50,7 +80,7 @@ class Result:
         """
         self.metrics.extend(metrics)
 
-    def add_subjects(self, subjects):
+    def _add_subjects(self, subjects):
         """
         Adds new subjects to the result.
 
@@ -59,7 +89,7 @@ class Result:
         """
         self.subjects.extend(subjects)
 
-    def add_measures(self, measures):
+    def _add_measures(self, measures):
         """
         Adds new measures to the result.
 
@@ -68,14 +98,15 @@ class Result:
         """
         self.measures.extend(measures)
 
-    def append(self, point):
+    def append(self, timestamp, values):
         """
         Add a new point with measured values to the result.
 
         Args:
-            point (multimeter.point.Point): The point with the values.
+            timestamp (datetime.datetime): The timestamp when the values were sampled.
+            values (Dict[str,any]): The values.
         """
-        self.points.append(point)
+        self.points.append(Point(timestamp, values))
 
     @property
     def start(self):

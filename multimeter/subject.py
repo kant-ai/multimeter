@@ -19,3 +19,10 @@ class Subject:
 
     def __hash__(self):
         return hash(self.key)
+
+
+SUBJECT_PROCESS = Subject(key='process', description="The current running process.")
+SUBJECT_CHILDREN = Subject(
+    key='children',
+    description="The aggregate of all children of the running process.",
+)

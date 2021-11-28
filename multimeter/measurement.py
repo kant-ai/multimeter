@@ -4,7 +4,6 @@ import logging
 import threading
 import time
 
-from .point import Point
 from .result import Result
 
 
@@ -23,8 +22,19 @@ class Measurement:
             containing the measured values.
     """
 
-    def __init__(self, multimeter, identifier=None, **labels):
-        self.identifier = identifier or 'measurement'
+    def __init__(self, multimeter, identifier, **labels):
+        """
+        Creates a new measurement.
+
+        Args:
+            multimeter (multimeter.multimeter.Multimeter): The multimeter whose
+                configuration should be used for this measurement.
+            identifier: The (unique) identifier for this series of measurement. If
+                `None`, a unique identifier is generated from the current time.
+            **labels (Dict[str,str]): A set of user-defined labels that can be used
+                for later differentiation between different measurements.
+        """
+        self.identifier = identifier or str(time.time())
         self.labels = labels
         self.result = None
         self._probes = multimeter.probes
@@ -39,11 +49,9 @@ class Measurement:
         Returns:
             multimeter.result.Result: The result of this series of measurement.
         """
-        self.result = Result(identifier=self.identifier, labels=self.labels)
-        for probe in self._probes:
-            self.result.add_metrics(probe.metrics)
-            self.result.add_subjects(probe.subjects)
-            self.result.add_measures(probe.measures)
+        self.result = Result(
+            *self._probes, identifier=self.identifier, labels=self.labels
+        )
         self._time_last_sample = time.monotonic()
         for probe in self._probes:
             probe.start()
@@ -65,16 +73,17 @@ class Measurement:
         """Gathers the measures for the current timestamp."""
         time_current_sample = time.monotonic()
         time_elapsed = time_current_sample - self._time_last_sample
-        point = Point(datetime.datetime.now(datetime.timezone.utc), {})
+        timestamp = datetime.datetime.now(datetime.timezone.utc)
+        values = {}
         for probe in self._probes:
-            probe.sample(point.values, time_elapsed)
-        logger.debug("Point %s", point)
-        self.result.append(point)
+            probe.sample(values, time_elapsed)
+        logger.debug("For %s sampled values %s", timestamp, values)
+        self.result.append(timestamp, values)
         self._time_last_sample = time_current_sample
 
     def __enter__(self):
         self.start()
-        return self
+        return self.result
 
     def __exit__(self, error_type, value, traceback):
         self.end()

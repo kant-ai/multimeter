@@ -6,7 +6,6 @@ import tempfile
 import unittest
 
 from multimeter.storage import JsonFileStorage
-from multimeter.point import Point
 from multimeter.result import Result
 
 
@@ -29,8 +28,8 @@ class TestJsonFileStorage(unittest.TestCase):
 
     def test_result_can_be_saved_as_json(self):
         result = Result(identifier='result')
-        result.append(Point(datetime.datetime(2021, 1, 1, 1, 1), {}))
-        result.append(Point(datetime.datetime(2021, 1, 1, 1, 10), {}))
+        result.append(datetime.datetime(2021, 1, 1, 1, 1), {})
+        result.append(datetime.datetime(2021, 1, 1, 1, 10), {})
 
         self.storage.store(result)
         with open(self.dir+f'/result.json', 'r') as stream:
@@ -52,7 +51,7 @@ class TestJsonFileStorage(unittest.TestCase):
 
     def test_result_can_be_saved_with_data(self):
         result = Result(identifier='result')
-        result.append(Point(datetime.datetime(2021, 1, 1, 1, 1), {'a': 1}))
+        result.append(datetime.datetime(2021, 1, 1, 1, 1), {'a': 1})
 
         self.storage.store(result)
         with open(self.dir+f'/result.json', 'r') as stream:

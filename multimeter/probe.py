@@ -18,7 +18,7 @@ from .metric import (
     METRIC_CONTEXT_SWITCHES_VOL,
     METRIC_CONTEXT_SWITCHES_INVOL,
 )
-from .subject import Subject
+from .subject import SUBJECT_PROCESS, SUBJECT_CHILDREN
 
 
 class Probe(abc.ABC):
@@ -104,11 +104,8 @@ class ResourceProbe(Probe):
     )
 
     _SUBJECTS = (
-        Subject(key='process', description="The current running process."),
-        Subject(
-            key='children',
-            description="The aggregate of all children of the running process.",
-        ),
+        SUBJECT_PROCESS,
+        SUBJECT_CHILDREN,
     )
 
     _metric_to_field = {

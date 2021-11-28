@@ -35,8 +35,8 @@ print(f"Start {result.start}")
 print(f"End {result.end}")
 print(f"Duration {result.duration}")
 print(f"CPU avg values: {result.values('process.cpu_rate_user')}")
-
 ```
+
 After the with statement the results can be taken from the measurement. The `Result` type
 provides access to the captured metrics and the individual data points.
 

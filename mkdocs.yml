@@ -1,0 +1,61 @@
+site_name: Multimeter documentation
+site_url: https://docs.kant.ai/multimeter/
+repo_url: https://gitlab.com/kantai/multimeter/
+site_dir: build
+
+nav:
+  - Home: index.md
+  - Getting started: getting_started.md
+  - User guide: user_guide.md
+  - Probes:
+      - Resource: probes/resource.md
+  - Storages:
+      - JsonFile: storages/jsonfile.md
+  - FAQ: faq.md
+  - Changelog: changelog.md
+  - API: api.md
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  features:
+    - navigation.tracking
+  icon:
+    repo: fontawesome/brands/gitlab
+  palette:
+    scheme: kantai
+  logo: icon_white.svg
+  favicon: favicon.svg
+
+markdown_extensions:
+  - toc:
+      permalink: 🔗
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - admonition
+
+extra_javascript:
+    -
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  analytics:
+    provider: plausible
+    domain: docs.kant.ai
+  homepage: https://docs.kant.ai
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/kantaiML
+      name: kantai on Twitter
+  version:
+    provider: mike
+
+copyright: Copyright &copy; 2021 Kantai GmbH
+
+plugins:
+  - git-revision-date
+  - mkdocstrings
+  - search

@@ -5,8 +5,8 @@ import shutil
 import tempfile
 import unittest
 
-from multimeter.storage import JsonFileStorage
 from multimeter.result import Result
+from multimeter.storages.json import JsonFileStorage
 
 
 class TestJsonFileStorage(unittest.TestCase):

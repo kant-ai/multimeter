@@ -1,6 +1,6 @@
 """The module defining the Multimeter class"""
 from multimeter.measurement import Measurement
-from multimeter.storage import DummyStorage
+from multimeter.storages.dummy import DummyStorage
 
 
 class Multimeter:

@@ -1,31 +1,9 @@
-"""Storage for measurement results"""
-import abc
+"""Storage that stores results in JSON files"""
 import itertools
 import json
 import pathlib
 
-
-# pylint: disable=too-few-public-methods
-class Storage(abc.ABC):
-    """
-    Base class for implementing storages, which store the results of measurements.
-    """
-
-    @abc.abstractmethod
-    def store(self, result):
-        """
-        Store the result.
-
-        Args:
-            result (multimeter.result.Result): The result to be stored.
-        """
-
-
-class DummyStorage(Storage):
-    """Dummy Storage implementation"""
-
-    def store(self, result):
-        pass
+from .base import Storage
 
 
 class _SerializableGenerator(list):

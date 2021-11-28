@@ -4,7 +4,7 @@ import unittest
 from multimeter.multimeter import Multimeter
 from multimeter.probe import ResourceProbe
 from multimeter.result import Result
-from multimeter.storage import DummyStorage
+from multimeter.storages.dummy import DummyStorage
 
 
 class TestMultimeterCase(unittest.TestCase):

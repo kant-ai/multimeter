@@ -32,6 +32,13 @@ class JsonFileStorage(Storage):
     """
 
     def __init__(self, save_directory):
+        """
+        Creates a new json file storage.
+
+        Args:
+            save_directory (Union[str,pathlib.Path]): The path to a directory, where
+                the json files will be stored.
+        """
         if save_directory is None:
             raise ValueError("'save_directory' must be set.")
         if not isinstance(save_directory, pathlib.Path):
@@ -44,6 +51,8 @@ class JsonFileStorage(Storage):
         return self._save_directory
 
     def store(self, result):
+        if not self._save_directory.exists():
+            self._save_directory.mkdir(parents=True)
         result_file_path = self._save_directory / (result.identifier + '.json')
         with open(result_file_path, 'w', encoding='utf-8') as stream:
             self._save_result_to_stream(result, stream)

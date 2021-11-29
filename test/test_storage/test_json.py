@@ -26,6 +26,18 @@ class TestJsonFileStorage(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "'save_directory' must be set"):
             JsonFileStorage(None)
 
+    def test_save_directory_is_created_when_first_result_is_stored(self):
+        save_dir = pathlib.Path(self.dir)
+        save_dir.rmdir()
+        storage = JsonFileStorage(save_dir)
+
+        self.assertFalse(save_dir.exists())
+
+        result = Result(identifier='result')
+        storage.store(result)
+
+        self.assertTrue(save_dir.exists())
+
     def test_result_can_be_saved_as_json(self):
         result = Result(identifier='result')
         result.append(datetime.datetime(2021, 1, 1, 1, 1), {})

@@ -58,24 +58,29 @@ class TestResult(unittest.TestCase):
         values = result.values('a')
         self.assertEqual(list(values), [1, 2, 3])
 
-    def test_metrics_can_be_added(self):
-        metric = Metric("my_metric")
-        result = Result()
-        result._add_metrics([metric])
-        self.assertIn(metric, result.metrics)
-
-    def test_subject_can_be_added(self):
-        subject = Subject("my_subject")
-        result = Result()
-        result._add_subjects([subject])
-        self.assertIn(subject, result.subjects)
-
-    def test_measures_can_be_added(self):
+    def test_metrics_subject_measures_are_added_from_probe(self):
         metric = Metric("my_metric")
         subject = Subject("my_subject")
         measure = Measure(subject, metric)
-        result = Result()
-        result._add_measures([measure])
+
+        class MyProbe:
+
+            @property
+            def metrics(self):
+                return tuple([metric])
+
+            @property
+            def subjects(self):
+                return tuple([subject])
+
+            @property
+            def measures(self):
+                return tuple([measure])
+
+        result = Result(MyProbe())
+
+        self.assertIn(metric, result.metrics)
+        self.assertIn(subject, result.subjects)
         self.assertIn(measure, result.measures)
 
 

@@ -49,14 +49,17 @@ class Result:
         self.identifier = identifier
         self.labels = labels or {}
         self.meta = {}
-        self.metrics = []
-        self.subjects = []
-        self.measures = []
-        self.points = []
+        self._points = []
+        metrics = []
+        subjects = []
+        measures = []
         for probe in probes:
-            self._add_metrics(probe.metrics)
-            self._add_subjects(probe.subjects)
-            self._add_measures(probe.measures)
+            metrics.extend(probe.metrics)
+            subjects.extend(probe.subjects)
+            measures.extend(probe.measures)
+        self.metrics = tuple(metrics)
+        self.subjects = tuple(subjects)
+        self.measures = tuple(measures)
 
     def add_meta_data(self, **meta_data):
         """
@@ -71,32 +74,10 @@ class Result:
         """
         self.meta.update(**meta_data)
 
-    def _add_metrics(self, metrics):
-        """
-        Adds new metrics to the result.
-
-        Args:
-            metrics List[multimeter.metric.Metric]: A list of metrics.
-        """
-        self.metrics.extend(metrics)
-
-    def _add_subjects(self, subjects):
-        """
-        Adds new subjects to the result.
-
-        Args:
-            metrics List[multimeter.subject.Subject]: A list of subjects.
-        """
-        self.subjects.extend(subjects)
-
-    def _add_measures(self, measures):
-        """
-        Adds new measures to the result.
-
-        Args:
-            metrics List[multimeter.measure.Measure]: A list of measures.
-        """
-        self.measures.extend(measures)
+    @property
+    def points(self):
+        """Returns a tuple containing the points"""
+        return tuple(self._points)
 
     def append(self, timestamp, values):
         """
@@ -106,7 +87,7 @@ class Result:
             timestamp (datetime.datetime): The timestamp when the values were sampled.
             values (Dict[str,any]): The values.
         """
-        self.points.append(Point(timestamp, values))
+        self._points.append(Point(timestamp, values))
 
     @property
     def start(self):
@@ -115,8 +96,8 @@ class Result:
             datetime.datetime: The timestamp of the first measurement or `None` if
                 nothing was measured.
         """
-        if self.points:
-            return self.points[0].datetime
+        if self._points:
+            return self._points[0].datetime
         return None
 
     @property
@@ -126,8 +107,8 @@ class Result:
             datetime.datetime: The timestamp of the last measurement or `None` if
                 nothing was measured.
         """
-        if self.points:
-            return self.points[-1].datetime
+        if self._points:
+            return self._points[-1].datetime
         return None
 
     @property
@@ -137,8 +118,8 @@ class Result:
             datetime.timedelta: The duration between first and last measurement or
                 `None` if nothing was measured.
         """
-        if self.points:
-            return self.points[-1].datetime - self.points[0].datetime
+        if self._points:
+            return self._points[-1].datetime - self._points[0].datetime
         return None
 
     def values(self, key):
@@ -151,4 +132,4 @@ class Result:
         Yields:
             any: A value of the type defined by the metric.
         """
-        return (point.values[key] for point in self.points)
+        return (point.values[key] for point in self._points)

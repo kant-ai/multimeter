@@ -136,14 +136,13 @@ but it's returned from `start()`, too.
 result = measurement.start()
 ```
 
-To make it more convenient the whole `start()`, `end()`, `result` sequence is
+To make it more convenient the whole `start()`, `end()` sequence is
 simplified, when using the `Measurement` as a context manager:
 
 ```python
-with multimeter.measure() as result:
+with multimeter.measure() as measurement:
     here_my_code_to_be_measured()
 ```
-
 
 ### Result
 

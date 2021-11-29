@@ -24,7 +24,7 @@ mm = multimeter.Multimeter(multimeter.ResourceProbe())
 ## Measure while executing the code you want to measure
 
 ```python
-with mm.measure(identifier='measurement-id') as result:
+with mm.measure(identifier='measurement-id') as measurement:
     # Here the code whose performance should be measured
     ...
 ```
@@ -32,10 +32,10 @@ with mm.measure(identifier='measurement-id') as result:
 ## Process the measured results
 
 ```python
-print(f"Start {result.start}")
-print(f"End {result.end}")
-print(f"Duration {result.duration}")
-print(f"CPU avg values: {result.values('process.cpu_rate_user')}")
+print(f"Start {measurement.result.start}")
+print(f"End {measurement.result.end}")
+print(f"Duration {measurement.result.duration}")
+print(f"CPU avg values: {measurement.result.values('process.cpu_rate_user')}")
 ```
 
 ## Automatically store the results as JSON

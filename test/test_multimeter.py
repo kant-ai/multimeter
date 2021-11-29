@@ -1,6 +1,7 @@
 import time
 import unittest
 
+from multimeter.measurement import Measurement
 from multimeter.multimeter import Multimeter
 from multimeter.probe import ResourceProbe
 from multimeter.result import Result
@@ -11,10 +12,12 @@ class TestMultimeterCase(unittest.TestCase):
 
     def test_measure_works_as_context_manager(self):
         mm = Multimeter(ResourceProbe(), cycle_time=0.01)
-        with mm.measure() as result:
+        with mm.measure() as measurement:
             time.sleep(0.1)
-        self.assertIsNotNone(result)
-        self.assertIsInstance(result, Result)
+        self.assertIsNotNone(measurement)
+        self.assertIsInstance(measurement, Measurement)
+        self.assertIsNotNone(measurement.result)
+        self.assertIsInstance(measurement.result, Result)
 
     def test_measure_works_with_cycle_time_of_0(self):
         mm = Multimeter(ResourceProbe(), cycle_time=0.0)

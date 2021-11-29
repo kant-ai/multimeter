@@ -83,7 +83,7 @@ class Measurement:
 
     def __enter__(self):
         self.start()
-        return self.result
+        return self
 
     def __exit__(self, error_type, value, traceback):
         self.end()

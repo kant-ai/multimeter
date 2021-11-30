@@ -51,7 +51,7 @@ class TestJsonFileStorage(unittest.TestCase):
             'identifier': 'result',
             'labels': {},
             'measures': [],
-            'meta': {},
+            'meta_data': {},
             'metrics': [],
             'subjects': [],
             'points': [
@@ -73,7 +73,7 @@ class TestJsonFileStorage(unittest.TestCase):
             'identifier': 'result',
             'labels': {},
             'measures': [],
-            'meta': {},
+            'meta_data': {},
             'metrics': [],
             'subjects': [],
             'points': [
@@ -94,7 +94,7 @@ class TestJsonFileStorage(unittest.TestCase):
             'identifier': 'result',
             'labels': {},
             'measures': [],
-            'meta': {'data': 'values', 'my': 'meta'},
+            'meta_data': {'data': 'values', 'my': 'meta'},
             'metrics': [],
             'subjects': [],
             'points': [],

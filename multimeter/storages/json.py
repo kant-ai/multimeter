@@ -102,7 +102,7 @@ class JsonFileStorage(Storage):
         result_json = {
             'identifier': result.identifier,
             'labels': result.labels,
-            'meta': result.meta,
+            'meta_data': result.meta_data,
             'metrics': metrics_json,
             'subjects': subjects_json,
             'measures': measures_json,

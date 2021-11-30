@@ -48,7 +48,7 @@ class Result:
     def __init__(self, *probes, identifier=None, labels=None):
         self.identifier = identifier
         self.labels = labels or {}
-        self.meta = {}
+        self.meta_data = {}
         self._points = []
         metrics = []
         subjects = []
@@ -72,7 +72,7 @@ class Result:
             **meta_data: The set of meta data in form of keyword args that should be
                 added to the result.
         """
-        self.meta.update(**meta_data)
+        self.meta_data.update(**meta_data)
 
     @property
     def points(self):

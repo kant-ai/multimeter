@@ -19,7 +19,7 @@ usage and io metrics. Unfortunately, the module is only available on unix.
 - METRIC_CONTEXT_SWITCHES_VOL: Number of voluntary context switches per seconds.
 - METRIC_CONTEXT_SWITCHES_INVOL: Number of involuntary context switches per seconds.
 
-See https://man7.org/linux/man-pages/man2/getrusage.2.html for more details.
+See [https://man7.org/linux/man-pages/man2/getrusage.2.html](https://man7.org/linux/man-pages/man2/getrusage.2.html) for more details.
 
 ## Subjects
 - SUBJECT_PROCESS: The python process.

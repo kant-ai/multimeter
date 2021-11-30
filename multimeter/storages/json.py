@@ -99,6 +99,13 @@ class JsonFileStorage(Storage):
             }
             for o in result.points
         )
+        marks_json = _SerializableGenerator(
+            {
+                'datetime': o.datetime.isoformat(timespec='milliseconds'),
+                'label': o.label,
+            }
+            for o in result.marks
+        )
         result_json = {
             'identifier': result.identifier,
             'tags': result.tags,
@@ -107,5 +114,6 @@ class JsonFileStorage(Storage):
             'subjects': subjects_json,
             'measures': measures_json,
             'points': points_json,
+            'marks': marks_json,
         }
         json.dump(result_json, stream, indent=2)

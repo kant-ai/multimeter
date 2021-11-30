@@ -32,6 +32,15 @@ class TestMeasurement(unittest.TestCase):
         measurement.end()
         self.assertIsNotNone(measurement.result)
 
+    def test_measurement_can_add_marks_to_result(self):
+        mm = Multimeter(cycle_time=0.01)
+        with mm.measure() as measurement:
+            measurement.add_mark("First mark")
+            time.sleep(0.02)
+            measurement.add_mark("Second mark")
+        self.assertEqual(measurement.result.marks[0].label, "First mark")
+        self.assertEqual(measurement.result.marks[1].label, "Second mark")
+
 
 if __name__ == '__main__':
     unittest.main()

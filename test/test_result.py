@@ -3,7 +3,7 @@ import unittest
 
 from multimeter.measure import Measure
 from multimeter.metric import Metric
-from multimeter.result import Point, Result
+from multimeter.result import Mark, Point, Result
 from multimeter.subject import Subject
 
 
@@ -16,6 +16,17 @@ class TestPoint(unittest.TestCase):
     def test_point_has_readable_str(self):
         point = Point(datetime.datetime(2021, 1, 1, 1, 11, 11), {})
         self.assertEqual(str(point), "Point('2021-01-01T01:11:11.000', {})")
+
+
+class TestMark(unittest.TestCase):
+
+    def test_mark_has_readable_repr(self):
+        mark = Mark(datetime.datetime(2021, 1, 1, 1, 11, 11), "My mark")
+        self.assertEqual(repr(mark), "Mark(datetime.datetime(2021, 1, 1, 1, 11, 11), 'My mark')")
+
+    def test_mark_has_readable_str(self):
+        point = Mark(datetime.datetime(2021, 1, 1, 1, 11, 11), "My mark")
+        self.assertEqual(str(point), "Mark('2021-01-01T01:11:11.000', My mark)")
 
 
 class TestResult(unittest.TestCase):

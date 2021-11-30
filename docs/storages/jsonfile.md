@@ -71,6 +71,12 @@ The json structure is a single object with fixed attributes:
         "process.cpu_rate_system": 5.469854836835e-05
       }
     }
+  ],
+  "marks": [
+    {
+      "datetime": "2021-11-27T18:43:51.733+00:00",
+      "label": "Call X"
+    }
   ]
 }
 ```
@@ -110,3 +116,9 @@ The list of individual measuring points. Each point has an attribute "datetime"
 containing the datetime (UTC) the values were measured and an attribute "values"
 with a javascript object, where the keys reference the measures and the values
 contain the measured values at this time.
+
+### points
+
+The list of timestamps with a mark. Each mark has an attribute "datetime"
+containing the datetime (UTC) and an attribute "label" which contains the
+label of the mark, that was given when the mark was made.

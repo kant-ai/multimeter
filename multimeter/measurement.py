@@ -49,9 +49,7 @@ class Measurement:
         Returns:
             multimeter.result.Result: The result of this series of measurement.
         """
-        self.result = Result(
-            *self._probes, identifier=self.identifier, tags=self.tags
-        )
+        self.result = Result(*self._probes, identifier=self.identifier, tags=self.tags)
         self._time_last_sample = time.monotonic()
         for probe in self._probes:
             probe.start()
@@ -68,6 +66,16 @@ class Measurement:
         for probe in self._probes:
             probe.end()
         self._storage.store(self.result)
+
+    def add_mark(self, label):
+        """
+        Add a new mark for the current time.
+
+        Args:
+            label (str): The label of the mark.
+        """
+        timestamp = datetime.datetime.now(datetime.timezone.utc)
+        self.result.add_mark(timestamp, label)
 
     def _sample(self):
         """Gathers the measures for the current timestamp."""

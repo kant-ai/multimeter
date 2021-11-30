@@ -57,7 +57,8 @@ class TestJsonFileStorage(unittest.TestCase):
             'points': [
                 {"datetime": "2021-01-01T01:01:00.000", "values": {}},
                 {"datetime": "2021-01-01T01:10:00.000", "values": {}},
-            ]
+            ],
+            'marks': [],
         }
         self.assertEqual(ref, json_obj)
 
@@ -78,7 +79,8 @@ class TestJsonFileStorage(unittest.TestCase):
             'subjects': [],
             'points': [
                 {"datetime": "2021-01-01T01:01:00.000", "values": {"a": 1}},
-            ]
+            ],
+            'marks': [],
         }
         self.assertEqual(ref, json_obj)
 
@@ -98,6 +100,7 @@ class TestJsonFileStorage(unittest.TestCase):
             'metrics': [],
             'subjects': [],
             'points': [],
+            'marks': [],
         }
         self.assertEqual(ref, json_obj)
 

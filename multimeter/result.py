@@ -27,6 +27,32 @@ class Point:
         return f"Point('{datetime_str}', {self.values})"
 
 
+class Mark:
+    """
+    Class that contains a mark for a specified time with an annotation.
+
+    Attributes:
+        datetime (datetime.datetime): The timestamp in UTC.
+        annotation (str): The annotation of the mark.
+    """
+
+    __slots__ = [
+        'datetime',
+        'label',
+    ]
+
+    def __init__(self, datetime, label):
+        self.datetime = datetime
+        self.label = label
+
+    def __repr__(self):
+        return f"Mark({repr(self.datetime)}, {repr(self.label)})"
+
+    def __str__(self):
+        datetime_str = self.datetime.isoformat(timespec='milliseconds')
+        return f"Mark('{datetime_str}', {self.label})"
+
+
 class Result:
     """
     Class representing results of a measurement.
@@ -35,14 +61,17 @@ class Result:
         identifier (str): A string, that identifies the measurement.
         tags (Dict[string,string]): A set of user-defined tags with arbitrary
             string values.
-        meta_data (Dict[string,string]): A dictionary with meta data about the measurement.
+        meta_data (Dict[string,string]): A dictionary with meta data about the
+            measurement.
         metrics (tuple[multimeter.metric.Metric): A list of metrics which are measured.
         subjects (tuple[multimeter.subject.Subject): A list of subjects on which some
             metrics were measured.
         measures (tuple[multimeter.measure.Measure): A list of measures, which contains
             which metrics were measured on which subjects.
-        points (tuple[multimeter.point.Point): A list of measurement points, which
+        points (tuple[multimeter.result.Point): A list of measurement points, which
             contain the measured values with their timestamp.
+        marks (tuple[multimeter.result.Mark): A tuple of marks that were set at specific
+            times during measuring.
     """
 
     def __init__(self, *probes, identifier=None, tags=None):
@@ -50,6 +79,7 @@ class Result:
         self.tags = tags or {}
         self.meta_data = {}
         self._points = []
+        self._marks = []
         metrics = []
         subjects = []
         measures = []
@@ -88,6 +118,21 @@ class Result:
             values (Dict[str,any]): The values.
         """
         self._points.append(Point(timestamp, values))
+
+    @property
+    def marks(self):
+        """Returns a tuple containing the marks"""
+        return tuple(self._marks)
+
+    def add_mark(self, timestamp, label):
+        """
+        Add a new mark for the given timestamp.
+
+        Args:
+            timestamp (datetime.datetime): The timestamp when the values were sampled.
+            label (str): The label of the mark.
+        """
+        self._marks.append(Mark(timestamp, label))
 
     @property
     def start(self):

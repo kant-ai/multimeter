@@ -2,7 +2,6 @@
 import abc
 
 
-# pylint: disable=too-few-public-methods
 class Storage(abc.ABC):
     """
     Base class for implementing storages, which store the results of measurements.

@@ -53,33 +53,22 @@ class Mark:
         return f"Mark('{datetime_str}', {self.label})"
 
 
-class Result:
+class Schema:
     """
-    Class representing results of a measurement.
+    Class that represents the schema of the values in a result.
+
+    The schema consists of the used metrics, the subjects of the measures and the
+    measures, which define which metric is measured on which subject.
 
     Attributes:
-        identifier (str): A string, that identifies the measurement.
-        tags (Dict[string,string]): A set of user-defined tags with arbitrary
-            string values.
-        meta_data (Dict[string,string]): A dictionary with meta data about the
-            measurement.
         metrics (tuple[multimeter.metric.Metric): A list of metrics which are measured.
         subjects (tuple[multimeter.subject.Subject): A list of subjects on which some
             metrics were measured.
         measures (tuple[multimeter.measure.Measure): A list of measures, which contains
             which metrics were measured on which subjects.
-        points (tuple[multimeter.result.Point): A list of measurement points, which
-            contain the measured values with their timestamp.
-        marks (tuple[multimeter.result.Mark): A tuple of marks that were set at specific
-            times during measuring.
     """
 
-    def __init__(self, *probes, identifier=None, tags=None):
-        self.identifier = identifier
-        self.tags = tags or {}
-        self.meta_data = {}
-        self._points = []
-        self._marks = []
+    def __init__(self, probes):
         metrics = []
         subjects = []
         measures = []
@@ -90,6 +79,33 @@ class Result:
         self.metrics = tuple(metrics)
         self.subjects = tuple(subjects)
         self.measures = tuple(measures)
+
+
+class Result:
+    """
+    Class representing results of a measurement.
+
+    Attributes:
+        identifier (str): A string, that identifies the measurement.
+        tags (Dict[string,string]): A set of user-defined tags with arbitrary
+            string values.
+        meta_data (Dict[string,string]): A dictionary with meta data about the
+            measurement.
+        schema (multimeter.result.Schema): The schema of the values that are used in
+            this result.
+        points (tuple[multimeter.result.Point): A list of measurement points, which
+            contain the measured values with their timestamp.
+        marks (tuple[multimeter.result.Mark): A tuple of marks that were set at specific
+            times during measuring.
+    """
+
+    def __init__(self, *probes, identifier=None, tags=None):
+        self.identifier = identifier
+        self.tags = tags or {}
+        self.meta_data = {}
+        self.schema = Schema(probes)
+        self._points = []
+        self._marks = []
 
     def add_meta_data(self, **meta_data):
         """

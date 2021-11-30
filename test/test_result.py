@@ -3,7 +3,7 @@ import unittest
 
 from multimeter.measure import Measure
 from multimeter.metric import Metric
-from multimeter.result import Mark, Point, Result
+from multimeter.result import Mark, Point, Result, Schema
 from multimeter.subject import Subject
 
 
@@ -69,6 +69,9 @@ class TestResult(unittest.TestCase):
         values = result.values('a')
         self.assertEqual(list(values), [1, 2, 3])
 
+
+class TestSchema(unittest.TestCase):
+
     def test_metrics_subject_measures_are_added_from_probe(self):
         metric = Metric("my_metric")
         subject = Subject("my_subject")
@@ -88,11 +91,11 @@ class TestResult(unittest.TestCase):
             def measures(self):
                 return tuple([measure])
 
-        result = Result(MyProbe())
+        schema = Schema([MyProbe()])
 
-        self.assertIn(metric, result.metrics)
-        self.assertIn(subject, result.subjects)
-        self.assertIn(measure, result.measures)
+        self.assertIn(metric, schema.metrics)
+        self.assertIn(subject, schema.subjects)
+        self.assertIn(measure, schema.measures)
 
 
 if __name__ == '__main__':

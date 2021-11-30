@@ -50,10 +50,12 @@ class TestJsonFileStorage(unittest.TestCase):
         ref = {
             'identifier': 'result',
             'tags': {},
-            'measures': [],
             'meta_data': {},
-            'metrics': [],
-            'subjects': [],
+            'schema': {
+                'metrics': [],
+                'subjects': [],
+                'measures': [],
+            },
             'points': [
                 {"datetime": "2021-01-01T01:01:00.000", "values": {}},
                 {"datetime": "2021-01-01T01:10:00.000", "values": {}},
@@ -73,10 +75,12 @@ class TestJsonFileStorage(unittest.TestCase):
         ref = {
             'identifier': 'result',
             'tags': {},
-            'measures': [],
             'meta_data': {},
-            'metrics': [],
-            'subjects': [],
+            'schema': {
+                'metrics': [],
+                'subjects': [],
+                'measures': [],
+            },
             'points': [
                 {"datetime": "2021-01-01T01:01:00.000", "values": {"a": 1}},
             ],
@@ -95,10 +99,12 @@ class TestJsonFileStorage(unittest.TestCase):
         ref = {
             'identifier': 'result',
             'tags': {},
-            'measures': [],
             'meta_data': {'data': 'values', 'my': 'meta'},
-            'metrics': [],
-            'subjects': [],
+            'schema': {
+                'metrics': [],
+                'subjects': [],
+                'measures': [],
+            },
             'points': [],
             'marks': [],
         }

@@ -20,42 +20,44 @@ The json structure is a single object with fixed attributes:
     "tag": "value"
   },
   "meta_data": {},
-  "metrics": [
-    {
-      "key": "cpu_rate_user",
-      "description": "The rate of the time where the CPU is executing user-space code.",
-      "unit": "",
-      "value_type": "float",
-      "min_value": 0.0,
-      "max_value": 1.0
-    },
-    {
-      "key": "cpu_rate_system",
-      "description": "The rate of the time where the CPU is executing system code.",
-      "unit": "",
-      "value_type": "float",
-      "min_value": 0.0,
-      "max_value": 1.0
-    }
-  ],
-  "subjects": [
-    {
-      "key": "process",
-      "description": "The current running process."
-    }
-  ],
-  "measures": [
-    {
-      "key": "process.cpu_rate_user",
-      "subject": "process",
-      "metric": "cpu_rate_user"
-    },
-    {
-      "key": "process.cpu_rate_system",
-      "subject": "process",
-      "metric": "cpu_rate_system"
-    }
-  ],
+  "schema": {
+    "metrics": [
+      {
+        "key": "cpu_rate_user",
+        "description": "The rate of the time where the CPU is executing user-space code.",
+        "unit": "",
+        "value_type": "float",
+        "min_value": 0.0,
+        "max_value": 1.0
+      },
+      {
+        "key": "cpu_rate_system",
+        "description": "The rate of the time where the CPU is executing system code.",
+        "unit": "",
+        "value_type": "float",
+        "min_value": 0.0,
+        "max_value": 1.0
+      }
+    ],
+    "subjects": [
+      {
+        "key": "process",
+        "description": "The current running process."
+      }
+    ],
+    "measures": [
+      {
+        "key": "process.cpu_rate_user",
+        "subject": "process",
+        "metric": "cpu_rate_user"
+      },
+      {
+        "key": "process.cpu_rate_system",
+        "subject": "process",
+        "metric": "cpu_rate_system"
+      }
+    ]
+  },
   "points": [
     {
       "datetime": "2021-11-27T18:43:51.033+00:00",
@@ -93,18 +95,23 @@ Tags are user-defined when the measurement is created.
 
 Contains the meta data that can be added to the result using `add_meta_data()`.
 
-### metrics
+### schema
+
+The schema contains a description of the different values that are measured.
+Their definition originates the metrics, subjects and measures:
+
+#### metrics
 
 A list of objects describing the metrics that are included in the results. Each object
 contains the attributes "key", "description", "unit", "value_type", "min_value" and
 "max_value".
 
-### subjects
+#### subjects
 
 A list of objects where each object represents a subject from which the metrics were
 sampled. Each object contains a "key" and a human-readable "description".
 
-### measure
+#### measure
 
 A list of objects representing individual measures describing which metric was sampled
 for which subject. Each object contains a "key" and references to a "subject" and a
@@ -117,7 +124,7 @@ containing the datetime (UTC) the values were measured and an attribute "values"
 with a javascript object, where the keys reference the measures and the values
 contain the measured values at this time.
 
-### points
+### marks
 
 The list of timestamps with a mark. Each mark has an attribute "datetime"
 containing the datetime (UTC) and an attribute "label" which contains the

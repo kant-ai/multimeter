@@ -75,14 +75,14 @@ class JsonFileStorage(Storage):
                 'min_value': o.min_value,
                 'max_value': o.max_value,
             }
-            for o in result.metrics
+            for o in result.schema.metrics
         )
         subjects_json = _SerializableGenerator(
             {
                 'key': o.key,
                 'description': o.description,
             }
-            for o in result.subjects
+            for o in result.schema.subjects
         )
         measures_json = _SerializableGenerator(
             {
@@ -90,7 +90,7 @@ class JsonFileStorage(Storage):
                 'subject': o.subject.key,
                 'metric': o.metric.key,
             }
-            for o in result.measures
+            for o in result.schema.measures
         )
         points_json = _SerializableGenerator(
             {
@@ -110,9 +110,11 @@ class JsonFileStorage(Storage):
             'identifier': result.identifier,
             'tags': result.tags,
             'meta_data': result.meta_data,
-            'metrics': metrics_json,
-            'subjects': subjects_json,
-            'measures': measures_json,
+            'schema': {
+                'metrics': metrics_json,
+                'subjects': subjects_json,
+                'measures': measures_json,
+            },
             'points': points_json,
             'marks': marks_json,
         }

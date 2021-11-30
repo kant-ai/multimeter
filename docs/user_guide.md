@@ -202,6 +202,23 @@ with multimeter.measure() as measurement:
     here_my_code_to_be_measured()
 ```
 
+#### Adding marks
+
+To make it easier to relate the code that is being measured with the measured values,
+a measurement allows adding marks programmatically using the method 
+[`add_mark(label)`](../api/#multimeter.measurement.Measurment.add_mark). By calling
+this method the current time is saved together with the provided label. This allows to
+identify different code sections in a single measurement.
+
+```python
+with multimeter.measure() as measurement:
+    here_my_code_to_be_measured()
+    measurement.add_mark("Next operation")
+    next_operation()
+    measurement.add_mark("final step")
+    final_step()
+```
+
 ### Result
 
 A [`Result`](../api/#multimeter.result.Result) gives access to the measured values

@@ -159,13 +159,13 @@ measurement = mm.measure(identfieer='my-measurement')
 ```
 
 Additionally, arbitrary keyword arguments with string values can be given. Those
-are treated as labels that can help to either differentiate between multiple
+are treated as tags that can help to either differentiate between multiple
 measurements or contain additional user-defined data:
 
 ```python
 measurement = mm.measure(
     identfieer='my-measurement',
-    my_label='label-value',
+    my_tag='tag-value',
 )
 ```
 

@@ -49,7 +49,7 @@ class TestJsonFileStorage(unittest.TestCase):
 
         ref = {
             'identifier': 'result',
-            'labels': {},
+            'tags': {},
             'measures': [],
             'meta_data': {},
             'metrics': [],
@@ -71,7 +71,7 @@ class TestJsonFileStorage(unittest.TestCase):
 
         ref = {
             'identifier': 'result',
-            'labels': {},
+            'tags': {},
             'measures': [],
             'meta_data': {},
             'metrics': [],
@@ -92,7 +92,7 @@ class TestJsonFileStorage(unittest.TestCase):
 
         ref = {
             'identifier': 'result',
-            'labels': {},
+            'tags': {},
             'measures': [],
             'meta_data': {'data': 'values', 'my': 'meta'},
             'metrics': [],

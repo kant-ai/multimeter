@@ -16,8 +16,8 @@ The json structure is a single object with fixed attributes:
 ```json
 {
   "identifier": "measure-id",
-  "labels": {
-    "key": "value"
+  "tags": {
+    "tag": "value"
   },
   "meta_data": {},
   "metrics": [
@@ -61,14 +61,14 @@ The json structure is a single object with fixed attributes:
       "datetime": "2021-11-27T18:43:51.033+00:00",
       "values": {
         "process.cpu_rate_user": 0.8287030088703983,
-        "process.cpu_rate_system": 0.2367722882486841,
+        "process.cpu_rate_system": 0.2367722882486841
       }
     },
     {
       "datetime": "2021-11-27T18:43:52.039+00:00",
       "values": {
         "process.cpu_rate_user": 1.0000167626132233,
-        "process.cpu_rate_system": 5.469854836835e-05,
+        "process.cpu_rate_system": 5.469854836835e-05
       }
     }
   ]
@@ -79,11 +79,11 @@ The json structure is a single object with fixed attributes:
 
 The identifier for the measurement, which created this result.
 
-### labels
+### tags
 
-Labels are user-defined when the measurement is created.
+Tags are user-defined when the measurement is created.
 
-### meta)data
+### meta_data
 
 Contains the meta data that can be added to the result using `add_meta_data()`.
 
@@ -96,7 +96,7 @@ contains the attributes "key", "description", "unit", "value_type", "min_value" 
 ### subjects
 
 A list of objects where each object represents a subject from which the metrics were
-sampled. Each object contains a "key" and a human readable "description".
+sampled. Each object contains a "key" and a human-readable "description".
 
 ### measure
 

@@ -16,13 +16,13 @@ class Measurement:
 
     Attributes:
         identifier (str): The (unique) identifier for this series of measurement.
-        labels (Dict[str,str]): A set of user-defined labels that can be used for
-            later differentiation between different series.
+        tags (Dict[str,str]): A set of user-defined tags that can be used for later
+            differentiation between different series.
         result (multimeter.result.Result): The result of the series of measurement
             containing the measured values.
     """
 
-    def __init__(self, multimeter, identifier, **labels):
+    def __init__(self, multimeter, identifier, **tags):
         """
         Creates a new measurement.
 
@@ -31,11 +31,11 @@ class Measurement:
                 configuration should be used for this measurement.
             identifier: The (unique) identifier for this series of measurement. If
                 `None`, a unique identifier is generated from the current time.
-            **labels (Dict[str,str]): A set of user-defined labels that can be used
+            **tags (Dict[str,str]): A set of user-defined tags that can be used
                 for later differentiation between different measurements.
         """
         self.identifier = identifier or str(time.time())
-        self.labels = labels
+        self.tags = tags
         self.result = None
         self._probes = multimeter.probes
         self._storage = multimeter.storage
@@ -50,7 +50,7 @@ class Measurement:
             multimeter.result.Result: The result of this series of measurement.
         """
         self.result = Result(
-            *self._probes, identifier=self.identifier, labels=self.labels
+            *self._probes, identifier=self.identifier, tags=self.tags
         )
         self._time_last_sample = time.monotonic()
         for probe in self._probes:

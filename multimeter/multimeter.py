@@ -52,20 +52,20 @@ class Multimeter:
         self._probes = [*probes]
         self._storage = storage
 
-    def measure(self, identifier=None, **labels):
+    def measure(self, identifier=None, **tags):
         """
         Create a new measurement based on the multimeters configuration.
 
         Args:
             identifier (str): The (unique) identifier for this measurement.
-            **labels (Dict[str,str]): Optional user-defined labels, that can be used
+            **tags (Dict[str,str]): Optional user-defined tags, that can be used
                 later for identifying the measurement.
 
         Returns:
             multimeter.measurement.Measurement: The new measurement object which is
                 used for starting and ending the process.
         """
-        return Measurement(self, identifier, **labels)
+        return Measurement(self, identifier, **tags)
 
     @property
     def probes(self):

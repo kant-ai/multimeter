@@ -33,21 +33,21 @@ class Result:
 
     Attributes:
         identifier (str): A string, that identifies the measurement.
-        labels (Dict[string,string]): A set of user-defined labels with arbitrary
+        tags (Dict[string,string]): A set of user-defined tags with arbitrary
             string values.
-        meta (Dict[string,string]): A dictionary with meta data about the measurement.
-        metrics (List[multimeter.metric.Metric): A list of metrics which are measured.
-        subjects (List[multimeter.subject.Subject): A list of subjects on which some
+        meta_data (Dict[string,string]): A dictionary with meta data about the measurement.
+        metrics (tuple[multimeter.metric.Metric): A list of metrics which are measured.
+        subjects (tuple[multimeter.subject.Subject): A list of subjects on which some
             metrics were measured.
-        measures (List[multimeter.measure.Measure): A list of measures, which contains
+        measures (tuple[multimeter.measure.Measure): A list of measures, which contains
             which metrics were measured on which subjects.
-        points (List[multimeter.point.Point): A list of measurement points, which
+        points (tuple[multimeter.point.Point): A list of measurement points, which
             contain the measured values with their timestamp.
     """
 
-    def __init__(self, *probes, identifier=None, labels=None):
+    def __init__(self, *probes, identifier=None, tags=None):
         self.identifier = identifier
-        self.labels = labels or {}
+        self.tags = tags or {}
         self.meta_data = {}
         self._points = []
         metrics = []

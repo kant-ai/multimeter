@@ -33,7 +33,7 @@ class Mark:
 
     Attributes:
         datetime (datetime.datetime): The timestamp in UTC.
-        annotation (str): The annotation of the mark.
+        label (str): The annotation of the mark.
     """
 
     __slots__ = [

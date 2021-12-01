@@ -107,7 +107,7 @@ class _MeasuringThread(threading.Thread):
         self._sample_function = sample_function
         self._cycle_time = cycle_time
         self._last_cycle_duration = cycle_time
-        super().__init__()
+        super().__init__(daemon=True)
 
     def end(self):
         """Signals to the thread that it should end."""

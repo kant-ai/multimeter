@@ -1,3 +1,5 @@
+import subprocess
+import sys
 import time
 import unittest
 
@@ -31,6 +33,13 @@ class TestMeasurement(unittest.TestCase):
         time.sleep(0.1)
         measurement.end()
         self.assertIsNotNone(measurement.result)
+
+    def test_started_measurement_doesnt_block_exit(self):
+        subprocess.check_call([
+            sys.executable,
+            '-c',
+            'import multimeter; m = multimeter.Multimeter(cycle_time=0.1).measure(""); m.start();'
+        ], timeout=1.0)
 
     def test_measurement_can_add_marks_to_result(self):
         mm = Multimeter(cycle_time=0.01)

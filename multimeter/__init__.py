@@ -2,7 +2,7 @@
 from .multimeter import Multimeter
 from .probe import ResourceProbe
 from .storages.dummy import DummyStorage
-from .storages.json import JsonFileStorage
+from .storages.file import FileStorage, JsonFormat, LineFormat
 
 
 __version__ = '0.1'

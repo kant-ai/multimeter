@@ -283,8 +283,8 @@ def main(args=None):
     """
     Main function for the visualization tool.
     """
-    args = args or sys.argv[1:]
     multimeter_dir = pathlib.Path.home() / '.multimeter'
+    multimeter_dir.mkdir(exist_ok=True)
     stdout_handler = logging.StreamHandler(sys.stdout)
     stdout_handler.setFormatter(logging.Formatter(fmt='%(message)s'))
     stdout_handler.level = logging.INFO

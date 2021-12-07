@@ -14,9 +14,14 @@ class TestVisualization(unittest.TestCase):
         self.subprocess_patcher = unittest.mock.patch("multimeter.visualization.subprocess.check_output")
         self.subprocess_mock = self.subprocess_patcher.start()
         self.args = type('', (), {})()
+        self.home_patcher = unittest.mock.patch("multimeter.visualization.pathlib.Path.home")
+        self.home_mock = self.home_patcher.start()
+        self.home_mock.return_value = pathlib.Path(tempfile.mkdtemp())
 
     def tearDown(self):
         self.subprocess_patcher.stop()
+        shutil.rmtree(self.home_mock.return_value)
+        self.home_patcher.stop()
 
     def test_install_exits_when_docker_fails(self):
         config_path = tempfile.mktemp()
@@ -121,6 +126,12 @@ class TestVisualization(unittest.TestCase):
             self.assertIn(('my', 'config'), call_kwargs['env'].items())
         finally:
             pathlib.Path(config_path).unlink()
+
+    def test_main_exits_without_docker_compose(self):
+        self.subprocess_mock.side_effect = OSError
+        with self.assertRaises(SystemExit):
+            main()
+        self.subprocess_mock.assert_called_with(['docker-compose', '--version'])
 
     def test_main_exits_without_docker_compose(self):
         self.subprocess_mock.side_effect = OSError

@@ -1,0 +1,699 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "gnetId": null,
+  "graphTooltip": 1,
+  "id": 2,
+  "iteration": 1638645863027,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "dashboard",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": false,
+      "title": "Full time",
+      "tooltip": "Full time scale",
+      "type": "link",
+      "url": "d/6V5fU2t7r/multimeter?orgId=1&var-measurementId=${measurementId}&from=${first}&to=${last}"
+    }
+  ],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 12,
+      "panels": [],
+      "title": "Resource metrics",
+      "type": "row"
+    },
+    {
+      "datasource": "InfluxDB_v2_Flux",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 1
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "query": "from(bucket: \"${INFLUX_BUCKET}\")\n  |> range(start: time(v: ${first}* 1000000), stop: time(v: ${last}* 1000000))\n  |> filter(fn: (r) =>\n    r._measurement == \"${measurementId}\"\n  )\n",
+          "refId": "A"
+        }
+      ],
+      "title": "CPU usage",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "children.context_switches_invol": true,
+              "children.context_switches_vol": true,
+              "children.cpu_rate_user": false,
+              "children.io_block_in": true,
+              "children.io_block_out": true,
+              "children.memory_page_faults_without_io": true,
+              "children.memory_rss_data": true,
+              "children.memory_rss_max": true,
+              "children.memory_rss_shared": true,
+              "children.memory_rss_stack": true,
+              "children.memory_swap_ops": true,
+              "process.context_switches_invol": true,
+              "process.context_switches_vol": true,
+              "process.io_block_in": true,
+              "process.io_block_out": true,
+              "process.memory_page_faults_without_io": true,
+              "process.memory_rss_data": true,
+              "process.memory_rss_max": true,
+              "process.memory_rss_shared": true,
+              "process.memory_rss_stack": true,
+              "process.memory_swap_ops": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": "-- Dashboard --",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 1
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "constant": 6.5,
+          "panelId": 2,
+          "refId": "A"
+        }
+      ],
+      "title": "Context switches",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "children.context_switches_invol": false,
+              "children.context_switches_vol": false,
+              "children.cpu_rate_system": true,
+              "children.cpu_rate_user": true,
+              "children.io_block_in": true,
+              "children.io_block_out": true,
+              "children.memory_page_faults_without_io": true,
+              "children.memory_rss_data": true,
+              "children.memory_rss_max": true,
+              "children.memory_rss_shared": true,
+              "children.memory_rss_stack": true,
+              "children.memory_swap_ops": true,
+              "process.cpu_rate_system": true,
+              "process.cpu_rate_user": true,
+              "process.io_block_in": true,
+              "process.io_block_out": true,
+              "process.memory_page_faults_without_io": true,
+              "process.memory_rss_data": true,
+              "process.memory_rss_max": true,
+              "process.memory_rss_shared": true,
+              "process.memory_rss_stack": true,
+              "process.memory_swap_ops": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": "-- Dashboard --",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "deckbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 10
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "constant": 6.5,
+          "panelId": 2,
+          "refId": "A"
+        }
+      ],
+      "title": "Memory",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "children.context_switches_invol": true,
+              "children.context_switches_vol": true,
+              "children.cpu_rate_system": true,
+              "children.cpu_rate_user": true,
+              "children.io_block_in": true,
+              "children.io_block_out": true,
+              "children.memory_page_faults_without_io": true,
+              "children.memory_swap_ops": true,
+              "process.context_switches_invol": true,
+              "process.context_switches_vol": true,
+              "process.cpu_rate_system": true,
+              "process.cpu_rate_user": true,
+              "process.io_block_in": true,
+              "process.io_block_out": true,
+              "process.memory_page_faults_without_io": true,
+              "process.memory_swap_ops": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": "-- Dashboard --",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 10
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "constant": 6.5,
+          "panelId": 2,
+          "refId": "A"
+        }
+      ],
+      "title": "Page faults and swaps",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "children.context_switches_invol": true,
+              "children.context_switches_vol": true,
+              "children.cpu_rate_system": true,
+              "children.cpu_rate_user": true,
+              "children.io_block_in": true,
+              "children.io_block_out": true,
+              "children.memory_rss_data": true,
+              "children.memory_rss_max": true,
+              "children.memory_rss_shared": true,
+              "children.memory_rss_stack": true,
+              "process.context_switches_invol": true,
+              "process.context_switches_vol": true,
+              "process.cpu_rate_system": true,
+              "process.cpu_rate_user": true,
+              "process.io_block_in": true,
+              "process.io_block_out": true,
+              "process.memory_page_faults_without_io": false,
+              "process.memory_rss_data": true,
+              "process.memory_rss_max": true,
+              "process.memory_rss_shared": true,
+              "process.memory_rss_stack": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": "-- Dashboard --",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 18
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "constant": 6.5,
+          "panelId": 2,
+          "refId": "A"
+        }
+      ],
+      "title": "Data I/O operations",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "children.context_switches_invol": true,
+              "children.context_switches_vol": true,
+              "children.cpu_rate_system": true,
+              "children.cpu_rate_user": true,
+              "children.memory_page_faults_without_io": true,
+              "children.memory_rss_data": true,
+              "children.memory_rss_max": true,
+              "children.memory_rss_shared": true,
+              "children.memory_rss_stack": true,
+              "children.memory_swap_ops": true,
+              "process.context_switches_invol": true,
+              "process.context_switches_vol": true,
+              "process.cpu_rate_system": true,
+              "process.cpu_rate_user": true,
+              "process.memory_page_faults_without_io": true,
+              "process.memory_rss_data": true,
+              "process.memory_rss_max": true,
+              "process.memory_rss_shared": true,
+              "process.memory_rss_stack": true,
+              "process.memory_swap_ops": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 32,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "example",
+          "value": "example"
+        },
+        "description": "The id of the measurement that should be displayed.",
+        "error": null,
+        "hide": 0,
+        "label": "Measurement",
+        "name": "measurementId",
+        "options": [
+          {
+            "selected": true,
+            "text": "example",
+            "value": "example"
+          }
+        ],
+        "query": "example",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "1638479887895",
+          "value": "1638479887895"
+        },
+        "datasource": "InfluxDB_v2_Flux",
+        "definition": "from(bucket: \"${INFLUX_BUCKET}\")\n  |> range(start: time(v: 0), stop: time(v: 9223372036854775806))\n  |> filter(fn: (r) =>\n    r._measurement == \"${measurementId}\"\n  )\n  |> keep(columns: [\"_time\"])\n  |> first(column: \"_time\")\n  |> map(fn: (r) => ({ _time: string(v: uint(v: r._time) / uint(v: 1000000)) }))",
+        "description": null,
+        "error": null,
+        "hide": 2,
+        "includeAll": false,
+        "label": " ",
+        "multi": false,
+        "name": "first",
+        "options": [],
+        "query": "from(bucket: \"${INFLUX_BUCKET}\")\n  |> range(start: time(v: 0), stop: time(v: 9223372036854775806))\n  |> filter(fn: (r) =>\n    r._measurement == \"${measurementId}\"\n  )\n  |> keep(columns: [\"_time\"])\n  |> first(column: \"_time\")\n  |> map(fn: (r) => ({ _time: string(v: uint(v: r._time) / uint(v: 1000000)) }))",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "1638479894107",
+          "value": "1638479894107"
+        },
+        "datasource": "InfluxDB_v2_Flux",
+        "definition": "from(bucket: \"${INFLUX_BUCKET}\")\n  |> range(start: time(v: 0), stop: time(v: 9223372036854775806))\n  |> filter(fn: (r) =>\n    r._measurement == \"${measurementId}\"\n  )\n  |> keep(columns: [\"_time\"])\n  |> last(column: \"_time\")\n  |> map(fn: (r) => ({ _time: string(v: uint(v: r._time) / uint(v: 1000000)) }))",
+        "description": null,
+        "error": null,
+        "hide": 2,
+        "includeAll": false,
+        "label": " ",
+        "multi": false,
+        "name": "last",
+        "options": [],
+        "query": "from(bucket: \"${INFLUX_BUCKET}\")\n  |> range(start: time(v: 0), stop: time(v: 9223372036854775806))\n  |> filter(fn: (r) =>\n    r._measurement == \"${measurementId}\"\n  )\n  |> keep(columns: [\"_time\"])\n  |> last(column: \"_time\")\n  |> map(fn: (r) => ({ _time: string(v: uint(v: r._time) / uint(v: 1000000)) }))",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "2021-12-02T21:18:07.895Z",
+    "to": "2021-12-02T21:18:14.107Z"
+  },
+  "timepicker": {
+    "hidden": false,
+    "refresh_intervals": []
+  },
+  "timezone": "utc",
+  "title": "Multimeter",
+  "uid": "6V5fU2t7r",
+  "version": 13
+}

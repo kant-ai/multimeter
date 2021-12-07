@@ -31,8 +31,10 @@ keywords = [
     "time series",
 ]
 dependencies = [
-    "psutil",
 ]
+
+[project.scripts]
+mm-visu = "multimeter.visualization:main"
 
 [project.urls]
 Documentation = "https://docs.kant.ai/multimeter/latest/"

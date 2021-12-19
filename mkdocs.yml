@@ -12,6 +12,7 @@ nav:
   - Storages:
       - JsonFile: storages/jsonfile.md
       - InfluxDB: storages/influx.md
+  - Visualization: visualization.md
   - FAQ: faq.md
   - Changelog: changelog.md
   - API: api.md

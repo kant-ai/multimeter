@@ -32,8 +32,8 @@
       "keepTime": false,
       "tags": [],
       "targetBlank": false,
-      "title": "Full time",
-      "tooltip": "Full time scale",
+      "title": "Full time range",
+      "tooltip": "Full time range",
       "type": "link",
       "url": "d/6V5fU2t7r/multimeter?orgId=1&var-measurementId=${measurementId}&from=${first}&to=${last}"
     }

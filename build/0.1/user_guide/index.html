@@ -1,0 +1,1228 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.kant.ai/multimeter/0.1/user_guide/">
+      
+      <link rel="icon" href="../favicon.svg">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.2">
+    
+    
+      
+        <title>User guide - Multimeter documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.f7951f6f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+    <script defer data-domain="docs.kant.ai" src="https://plausible.io/js/plausible.js"></script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="kantai" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#user-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+        </aside>
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://docs.kant.ai" title="Multimeter documentation" class="md-header__button md-logo" aria-label="Multimeter documentation" data-md-component="logo">
+      
+  <img src="../icon_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Multimeter documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              User guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://gitlab.com/kantai/multimeter/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M105.2 24.9c-3.1-8.9-15.7-8.9-18.9 0L29.8 199.7h132c-.1 0-56.6-174.8-56.6-174.8zM.9 287.7c-2.6 8 .3 16.9 7.1 22l247.9 184-226.2-294zm160.8-88 94.3 294 94.3-294zm349.4 88-28.8-88-226.3 294 247.9-184c6.9-5.1 9.7-14 7.2-22zM425.7 24.9c-3.1-8.9-15.7-8.9-18.9 0l-56.6 174.8h132z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitLab
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://docs.kant.ai" title="Multimeter documentation" class="md-nav__button md-logo" aria-label="Multimeter documentation" data-md-component="logo">
+      
+  <img src="../icon_white.svg" alt="logo">
+
+    </a>
+    Multimeter documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://gitlab.com/kantai/multimeter/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M105.2 24.9c-3.1-8.9-15.7-8.9-18.9 0L29.8 199.7h132c-.1 0-56.6-174.8-56.6-174.8zM.9 287.7c-2.6 8 .3 16.9 7.1 22l247.9 184-226.2-294zm160.8-88 94.3 294 94.3-294zm349.4 88-28.8-88-226.3 294 247.9-184c6.9-5.1 9.7-14 7.2-22zM425.7 24.9c-3.1-8.9-15.7-8.9-18.9 0l-56.6 174.8h132z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitLab
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started/" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          User guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        User guide
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-library" class="md-nav__link">
+    Install the library
+  </a>
+  
+    <nav class="md-nav" aria-label="Install the library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-stable-release-from-pypi" class="md-nav__link">
+    Use stable release from PyPI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-from-source" class="md-nav__link">
+    Use from source
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-multimeter-works" class="md-nav__link">
+    How multimeter works
+  </a>
+  
+    <nav class="md-nav" aria-label="How multimeter works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multimeter" class="md-nav__link">
+    Multimeter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probe" class="md-nav__link">
+    Probe
+  </a>
+  
+    <nav class="md-nav" aria-label="Probe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics" class="md-nav__link">
+    metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subjects" class="md-nav__link">
+    subjects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measures" class="md-nav__link">
+    measures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-and-end" class="md-nav__link">
+    start() and end()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capturing-values" class="md-nav__link">
+    Capturing values
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measurement" class="md-nav__link">
+    Measurement
+  </a>
+  
+    <nav class="md-nav" aria-label="Measurement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#measuring" class="md-nav__link">
+    Measuring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-marks" class="md-nav__link">
+    Adding marks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    Result
+  </a>
+  
+    <nav class="md-nav" aria-label="Result">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#points" class="md-nav__link">
+    points
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metrics_1" class="md-nav__link">
+    metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subjects_1" class="md-nav__link">
+    subjects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measures_1" class="md-nav__link">
+    measures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#meta_data" class="md-nav__link">
+    meta_data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    Storage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extending-multimeter" class="md-nav__link">
+    Extending multimeter
+  </a>
+  
+    <nav class="md-nav" aria-label="Extending multimeter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementing-custom-probe" class="md-nav__link">
+    Implementing custom probe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementing-custom-storage" class="md-nav__link">
+    Implementing custom storage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Probes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Probes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Probes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../probes/resource/" class="md-nav__link">
+        Resource
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Storages
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Storages" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Storages
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storages/jsonfile/" class="md-nav__link">
+        JsonFile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storages/influx/" class="md-nav__link">
+        InfluxDB
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visualization/" class="md-nav__link">
+        Visualization
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-library" class="md-nav__link">
+    Install the library
+  </a>
+  
+    <nav class="md-nav" aria-label="Install the library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-stable-release-from-pypi" class="md-nav__link">
+    Use stable release from PyPI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-from-source" class="md-nav__link">
+    Use from source
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-multimeter-works" class="md-nav__link">
+    How multimeter works
+  </a>
+  
+    <nav class="md-nav" aria-label="How multimeter works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multimeter" class="md-nav__link">
+    Multimeter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probe" class="md-nav__link">
+    Probe
+  </a>
+  
+    <nav class="md-nav" aria-label="Probe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics" class="md-nav__link">
+    metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subjects" class="md-nav__link">
+    subjects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measures" class="md-nav__link">
+    measures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-and-end" class="md-nav__link">
+    start() and end()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capturing-values" class="md-nav__link">
+    Capturing values
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measurement" class="md-nav__link">
+    Measurement
+  </a>
+  
+    <nav class="md-nav" aria-label="Measurement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#measuring" class="md-nav__link">
+    Measuring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-marks" class="md-nav__link">
+    Adding marks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    Result
+  </a>
+  
+    <nav class="md-nav" aria-label="Result">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#points" class="md-nav__link">
+    points
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metrics_1" class="md-nav__link">
+    metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subjects_1" class="md-nav__link">
+    subjects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measures_1" class="md-nav__link">
+    measures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#meta_data" class="md-nav__link">
+    meta_data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    Storage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extending-multimeter" class="md-nav__link">
+    Extending multimeter
+  </a>
+  
+    <nav class="md-nav" aria-label="Extending multimeter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementing-custom-probe" class="md-nav__link">
+    Implementing custom probe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementing-custom-storage" class="md-nav__link">
+    Implementing custom storage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://gitlab.com/kantai/multimeter/edit/master/docs/user_guide.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="user-guide">User guide<a class="headerlink" href="#user-guide" title="Permanent link">🔗</a></h1>
+<p>This user guide can be used as a starting point for getting a deeper understanding of
+the inner workings of the multimeter library. It is meant for users who want to learn
+about individual details or who plan to extend its features by developing own
+probes or storages.</p>
+<h2 id="install-the-library">Install the library<a class="headerlink" href="#install-the-library" title="Permanent link">🔗</a></h2>
+<p>The library can be installed in two different ways:</p>
+<h3 id="use-stable-release-from-pypi">Use stable release from PyPI<a class="headerlink" href="#use-stable-release-from-pypi" title="Permanent link">🔗</a></h3>
+<p>All stable versions of multimeter are available on
+<a href="https://pypi.org/project/multimeter/">PyPI</a>
+and can be downloaded and installed from there. The easiest option to get it installed
+into your python environment is by using <code>pip</code>:</p>
+<div class="highlight"><pre><span></span><code>pip install multimeter
+</code></pre></div>
+<h3 id="use-from-source">Use from source<a class="headerlink" href="#use-from-source" title="Permanent link">🔗</a></h3>
+<p><a href="https://gitlab.com/kantai/multimeter/-/tree/mainline">Multimeter's Git repository</a> is
+available for everyone and can easily be cloned into a new repository on your local
+machine:</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> /your/local/directory
+$ git clone https://gitlab.com/kantai/multimeter.git
+$ <span class="nb">cd</span> multimeter
+</code></pre></div>
+<p>If you want to make changes to library, please follow the guidance in the
+<a href="https://gitlab.com/kantai/multimeter/-/blob/mainline/README.md">README.md</a> on how
+to setup the necessary tools for testing your changes.</p>
+<p>If you just want to use the library, it is sufficient to add the path to your local
+multimeter repository to your <code>$PYTHONPATH</code> variable, e.g.:</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PYTHONPATH</span><span class="s2">:/your/local/directory/multimeter&quot;</span>
+</code></pre></div>
+<h2 id="how-multimeter-works">How multimeter works<a class="headerlink" href="#how-multimeter-works" title="Permanent link">🔗</a></h2>
+<p>First we start with some high-level description of the individual parts of the library.</p>
+<h3 id="multimeter">Multimeter<a class="headerlink" href="#multimeter" title="Permanent link">🔗</a></h3>
+<p><a href="../api/#multimeter.multimeter.Multimeter"><code>Multimeter</code></a> is the central class which is
+used by the user to start a measurement. A Multimeter takes the configuration, that
+defines what and how it is measured. This configuration is usually given directly as
+constructor arguments, when instantiating the object:</p>
+<p><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">multimeter</span>
+
+<span class="o">...</span>
+
+<span class="n">mm</span> <span class="o">=</span> <span class="n">multimeter</span><span class="o">.</span><span class="n">Multimeter</span><span class="p">(</span>
+    <span class="n">multimeter</span><span class="o">.</span><span class="n">ResourceProbe</span><span class="p">(),</span>
+    <span class="n">cycle_time</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span>
+    <span class="n">storage</span><span class="o">=</span><span class="n">multimeter</span><span class="o">.</span><span class="n">DummyStorage</span><span class="p">(),</span>
+<span class="p">)</span>
+</code></pre></div>
+Additionally, it can be (re-)configured later:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">multimeter</span>
+
+<span class="o">...</span>
+
+<span class="n">mm</span> <span class="o">=</span> <span class="n">multimeter</span><span class="o">.</span><span class="n">Multimeter</span><span class="p">()</span>
+
+<span class="o">...</span>
+
+<span class="n">mm</span><span class="o">.</span><span class="n">add_probes</span><span class="p">(</span><span class="n">multimeter</span><span class="o">.</span><span class="n">ResourceProbe</span><span class="p">())</span>
+<span class="n">mm</span><span class="o">.</span><span class="n">set_cycle_time</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
+<span class="n">mm</span><span class="o">.</span><span class="n">set_storage</span><span class="p">(</span><span class="n">multimeter</span><span class="o">.</span><span class="n">DummyStorage</span><span class="p">())</span>
+</code></pre></div>
+<h3 id="probe">Probe<a class="headerlink" href="#probe" title="Permanent link">🔗</a></h3>
+<p>For actually capturing the values, <code>Multimeter</code> uses an arbitrary number of 
+<a href="../api/#multimeter.probe.Probe"><code>Probe</code></a> objects, which are either provided as
+positional arguments in the <code>Multimeter</code> constructor or are added after construction
+using <a href="../api/#multimeter.multimeter.Multimeter.add_probes"><code>add_probes</code></a>.</p>
+<p>Each probe object can define describe values it captures. This is done using 3 different
+properties:</p>
+<h5 id="metrics">metrics<a class="headerlink" href="#metrics" title="Permanent link">🔗</a></h5>
+<p><a href="../api/#multimeter.probe.Probe.metrics"><code>metrics</code></a> contains a tuple of
+<a href="../api/#multimeter.metric.Metric"><code>Metric</code></a> objects, that describe different types of
+values that are captured, e.g. the CPU rate spend executing user code or the memory
+consumption. A metric can have additional attributes like the python type of the values,
+a minimum or maximum value or the unit as string that the value is in. These values are
+not checked or enforced in any way, but they can be useful for the interpretation of the
+results by the user or other tools.</p>
+<h5 id="subjects">subjects<a class="headerlink" href="#subjects" title="Permanent link">🔗</a></h5>
+<p><a href="../api/#multimeter.probe.Probe.subjects"><code>subjects</code></a> contains a tuple of
+<a href="../api/#multimeter.subject.Subject"><code>Subject</code></a> objects that describe where a metric
+can be captured, e.g. 'process' when capturing the memory usage of a process or a file
+system where the free disk space is captured. The supported subjects are <code>Probe</code>
+dependent, too.</p>
+<h5 id="measures">measures<a class="headerlink" href="#measures" title="Permanent link">🔗</a></h5>
+<p>The <a href="../api/#multimeter.probe.Probe.measures"><code>measures</code></a> attribute contains instances
+of type <a href="../api/#multimeter.measure.Measure"><code>Measure</code></a>, which references a single
+metric and a single subject. The <code>key</code> of a <code>Measure</code> matches the key under which the
+corresponding values are stored.</p>
+<h4 id="start-and-end"><code>start()</code> and <code>end()</code><a class="headerlink" href="#start-and-end" title="Permanent link">🔗</a></h4>
+<p>Probes can implement two methods <code>start()</code> and <code>end()</code>, which are called when a new
+measurement is started or finished. This allows the probe to set up and tear down some
+mechanism for collecting the values. Both methods are optional to use and the default
+implementations in the <code>Probe</code> base class don't do anything.</p>
+<h4 id="capturing-values">Capturing values<a class="headerlink" href="#capturing-values" title="Permanent link">🔗</a></h4>
+<p>For actually capturing the values, <code>Probe</code> subclasses need to implement a method
+<a href="../api/#multimeter.probe.Probe.sample"><code>sample(values, time_span)</code></a>. This method is
+given a dictionary <code>values</code> where the captured values should be added under the key of
+their corresponding <code>Measure</code>, and a value <code>time_span</code> which contains the number of
+seconds as <code>float</code> since the previous sample or since <code>start()</code> in case of the first
+call to <code>sample()</code>.
+The probes are expected to always set a value for each if its <code>measures</code>.</p>
+<p>Out of the box Multimeter contains the following <code>Probe</code> objects:</p>
+<ul>
+<li><a href="../probes/resource/"><code>ResourceProbe</code></a></li>
+</ul>
+<h3 id="measurement">Measurement<a class="headerlink" href="#measurement" title="Permanent link">🔗</a></h3>
+<p>A new <a href="../api/#multimeter.measurement.Measurement"><code>Measurement</code></a> is created by
+calling the
+<a href="../api/#multimeter.multimeter.Multimeter.measure"><code>measure()</code></a>
+method on a <code>Multimeter</code> object.</p>
+<div class="highlight"><pre><span></span><code><span class="n">measurement</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+</code></pre></div>
+<p><code>measure()</code> takes optional keyword arguments, that
+allows to identify individual measurements later on. If <code>identifier</code> is provided, its
+value is used as a (unique) identifier for this measurement:</p>
+<div class="highlight"><pre><span></span><code><span class="n">measurement</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">identfieer</span><span class="o">=</span><span class="s1">&#39;my-measurement&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Additionally, arbitrary keyword arguments with string values can be given. Those
+are treated as tags that can help to either differentiate between multiple
+measurements or contain additional user-defined data:</p>
+<div class="highlight"><pre><span></span><code><span class="n">measurement</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span>
+    <span class="n">identfieer</span><span class="o">=</span><span class="s1">&#39;my-measurement&#39;</span><span class="p">,</span>
+    <span class="n">my_tag</span><span class="o">=</span><span class="s1">&#39;tag-value&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="measuring">Measuring<a class="headerlink" href="#measuring" title="Permanent link">🔗</a></h4>
+<p>The measurement starts as soon as one calls
+<a href="../api/#multimeter.measurement.Measurment.start"><code>start()</code></a>. This starts a new thread
+which runs in the background and gathers the measurement values at regular intervals
+of length <code>cycle_time</code>. This is done until the measurement is ended by calling
+<a href="../api/#multimeter.measurement.Measurment.end"><code>end()</code></a>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">measurement</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">here_my_code_to_be_measured</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="n">measurement</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+</code></pre></div>
+<p>The <a href="../api/#multimeter.result.Result"><code>Result</code></a>. can be retrieved by explicitly
+getting it from the measurement,
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="n">measurement</span><span class="o">.</span><span class="n">result</span>
+</code></pre></div>
+but it's returned from <code>start()</code>, too.
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="n">measurement</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</code></pre></div></p>
+<p>To make it more convenient the whole <code>start()</code>, <code>end()</code> sequence is
+simplified, when using the <code>Measurement</code> as a context manager:</p>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="n">multimeter</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span> <span class="k">as</span> <span class="n">measurement</span><span class="p">:</span>
+    <span class="n">here_my_code_to_be_measured</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="adding-marks">Adding marks<a class="headerlink" href="#adding-marks" title="Permanent link">🔗</a></h4>
+<p>To make it easier to relate the code that is being measured with the measured values,
+a measurement allows adding marks programmatically using the method 
+<a href="../api/#multimeter.measurement.Measurment.add_mark"><code>add_mark(label)</code></a>. By calling
+this method the current time is saved together with the provided label. This allows to
+identify different code sections in a single measurement.</p>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="n">multimeter</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span> <span class="k">as</span> <span class="n">measurement</span><span class="p">:</span>
+    <span class="n">here_my_code_to_be_measured</span><span class="p">()</span>
+    <span class="n">measurement</span><span class="o">.</span><span class="n">add_mark</span><span class="p">(</span><span class="s2">&quot;Next operation&quot;</span><span class="p">)</span>
+    <span class="n">next_operation</span><span class="p">()</span>
+    <span class="n">measurement</span><span class="o">.</span><span class="n">add_mark</span><span class="p">(</span><span class="s2">&quot;final step&quot;</span><span class="p">)</span>
+    <span class="n">final_step</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="result">Result<a class="headerlink" href="#result" title="Permanent link">🔗</a></h3>
+<p>A <a href="../api/#multimeter.result.Result"><code>Result</code></a> gives access to the measured values
+together with a description of the metrics and the subjects that were captured.</p>
+<h4 id="points">points<a class="headerlink" href="#points" title="Permanent link">🔗</a></h4>
+<p>For each timestamp where values are gathered,
+<a href="../api/#multimeter.result.Result.points"><code>point</code></a> contain an individual object of type
+<a href="../api/#multimeter.result.Point"><code>Point</code></a>. Each point contains only two attributes:</p>
+<ol>
+<li><a href="../api/#multimeter.result.Point.datetime"><code>datetime</code></a>: A python <code>datetime.datetime</code>
+  value with timezone UTC that contains the timestamp when the values of the point were
+  measured.</li>
+<li><a href="../api/#multimeter.result.Point.values"><code>values</code></a>: A <code>dict()</code> which contains the
+  values for all measures at this time. The types of the individual values depend on
+  the <code>value_type</code> of the corresponding measure's metric.</li>
+</ol>
+<h4 id="metrics_1">metrics<a class="headerlink" href="#metrics_1" title="Permanent link">🔗</a></h4>
+<p><a href="../api/#multimeter.result.Result.metrics"><code>metrics</code></a> contains the union of all
+<a href="../api/#multimeter.metric.Metric"><code>Metric</code></a> objects defined by all probes that set
+the values in this result.</p>
+<h4 id="subjects_1">subjects<a class="headerlink" href="#subjects_1" title="Permanent link">🔗</a></h4>
+<p><a href="../api/#multimeter.result.Result.subjects"><code>subjects</code></a> contain the union of all
+<a href="../api/#multimeter.subject.Subject"><code>Subject</code></a> objects defined by all probes that set
+the values in this result.</p>
+<h4 id="measures_1">measures<a class="headerlink" href="#measures_1" title="Permanent link">🔗</a></h4>
+<p>The <a href="../api/#multimeter.result.Result.measures"><code>measures</code></a> attribute contains
+the union of all<a href="../api/#multimeter.measure.Measure"><code>Measure</code></a>, objects defined by
+all probes that set the values in this result. The <code>key</code> of a <code>Measure</code> matches the
+key under which the corresponding values are stored.</p>
+<h4 id="meta_data">meta_data<a class="headerlink" href="#meta_data" title="Permanent link">🔗</a></h4>
+<p>All properties in the result are read-only. The only changes to the result by the user
+can be made by adding meta data using
+<a href="../api/#multimeter.result.Result.add_meta_data"><code>Result.add_meta_data(**meta_data)</code></a>.
+The meta data values can be strings or other primitives. It is meant for storing
+additional information about the run, that can be useful for interpreting the result,
+e.g. instance type, operating system version, user account who executes the code etc.</p>
+<h3 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">🔗</a></h3>
+<p>Once a measurement is finished, its result can be automatically stored by a
+<a href="../api/#multimeter.storages.base.Storage"><code>Storage</code></a>. <code>Storage</code> classes need to
+implement only a single method: <a href="../api/#multimeter.storages.base.Storage.store"><code>store(result)</code></a>
+This method takes as only argument the <code>Result</code> of the measurement.</p>
+<p>Multimeter provides the following different <code>Storage</code> implementations:</p>
+<ul>
+<li><a href="../storages/jsonfile/"><code>JsonFileStorage</code></a></li>
+</ul>
+<h2 id="extending-multimeter">Extending multimeter<a class="headerlink" href="#extending-multimeter" title="Permanent link">🔗</a></h2>
+<p>Multimeter can easily be extended on two sides, gathering values and storing values.</p>
+<h3 id="implementing-custom-probe">Implementing custom probe<a class="headerlink" href="#implementing-custom-probe" title="Permanent link">🔗</a></h3>
+<p>A new probe should inherit from the <a href="../api/#multimeter.probe.Probe"><code>Probe</code></a> base class.
+The only method that needs to be implemented is <code>sample(values, time_span</code>.</p>
+<p>In order to make
+it easier to understand, what different measures, subjects and metrics the new probe uses,
+the corresponding methods <a href="../api/#multimeter.probe.Probe.measures"><code>measures</code></a>,
+<a href="../api/#multimeter.probe.Probe.subjects"><code>subjects</code></a> and
+<a href="../api/#multimeter.probe.Probe.metrics"><code>metrics</code></a> should be implemented and match, the
+values, that <code>sample(values, time_span)</code> defines. If applicable, some predefined metrics
+<code>METRIC_*</code> in <code>multimeter.metrics</code> and subjects <code>SUBJECT_*</code> in <code>multimeter.subjects</code> can be
+used.</p>
+<p><code>start()</code> and <code>end()</code> can be implemented if useful for initialization or cleaning up.</p>
+<h3 id="implementing-custom-storage">Implementing custom storage<a class="headerlink" href="#implementing-custom-storage" title="Permanent link">🔗</a></h3>
+<p>Implementing a custom storage class is quite easy. Inherit from the base class
+<a href="../api/#multimeter.storages.base.Storage"><code>multimeter.storages.base.Storage</code></a> and implement
+the method <a href="../api/#multimeter.storages.base.Storage.store"><code>store(result)</code></a>.</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2021-11-30
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../getting_started/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Getting started" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Getting started
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../probes/resource/" class="md-footer__link md-footer__link--next" aria-label="Next: Resource" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Resource
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2021 Kantai GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://twitter.com/kantaiML" target="_blank" rel="noopener" title="kantai on Twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tracking"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.0bbba5b5.min.js", "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.649a939e.min.js"></script>
+      
+        <script src=".."></script>
+      
+    
+  </body>
+</html>

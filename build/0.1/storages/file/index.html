@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://docs.kant.ai/multimeter/0.1/storages/influx/">
+        <link rel="canonical" href="https://docs.kant.ai/multimeter/0.1/storages/file/">
       
       <link rel="icon" href="../../favicon.svg">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.2">
     
     
       
-        <title>InfluxDB - Multimeter documentation</title>
+        <title>File - Multimeter documentation</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#influxdbstorage" class="md-skip">
+        <a href="#filestorage" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              InfluxDB
+              File
             
           </span>
         </div>
@@ -334,20 +334,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../file/" class="md-nav__link">
-        File
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -360,12 +346,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          InfluxDB
+          File
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        InfluxDB
+        File
       </a>
       
         
@@ -392,29 +378,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#token" class="md-nav__link">
-    token
+  <a href="#save_directory-pathlibpath" class="md-nav__link">
+    save_directory (pathlib.Path)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#url" class="md-nav__link">
-    url
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#org" class="md-nav__link">
-    org
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bucket" class="md-nav__link">
-    bucket
+  <a href="#file_format-multimeterfileformat" class="md-nav__link">
+    file_format (multimeter.FileFormat)
   </a>
   
 </li>
@@ -431,10 +403,113 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#format-json" class="md-nav__link">
+    Format JSON
+  </a>
+  
+    <nav class="md-nav" aria-label="Format JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identifier" class="md-nav__link">
+    identifier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tags" class="md-nav__link">
+    tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#meta_data" class="md-nav__link">
+    meta_data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema" class="md-nav__link">
+    schema
+  </a>
+  
+    <nav class="md-nav" aria-label="schema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics" class="md-nav__link">
+    metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subjects" class="md-nav__link">
+    subjects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measure" class="md-nav__link">
+    measure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#points" class="md-nav__link">
+    points
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#marks" class="md-nav__link">
+    marks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format-line" class="md-nav__link">
+    Format Line
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../influx/" class="md-nav__link">
+        InfluxDB
+      </a>
     </li>
   
 
@@ -541,29 +616,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#token" class="md-nav__link">
-    token
+  <a href="#save_directory-pathlibpath" class="md-nav__link">
+    save_directory (pathlib.Path)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#url" class="md-nav__link">
-    url
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#org" class="md-nav__link">
-    org
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bucket" class="md-nav__link">
-    bucket
+  <a href="#file_format-multimeterfileformat" class="md-nav__link">
+    file_format (multimeter.FileFormat)
   </a>
   
 </li>
@@ -580,6 +641,95 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#format-json" class="md-nav__link">
+    Format JSON
+  </a>
+  
+    <nav class="md-nav" aria-label="Format JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identifier" class="md-nav__link">
+    identifier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tags" class="md-nav__link">
+    tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#meta_data" class="md-nav__link">
+    meta_data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema" class="md-nav__link">
+    schema
+  </a>
+  
+    <nav class="md-nav" aria-label="schema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics" class="md-nav__link">
+    metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subjects" class="md-nav__link">
+    subjects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measure" class="md-nav__link">
+    measure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#points" class="md-nav__link">
+    points
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#marks" class="md-nav__link">
+    marks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format-line" class="md-nav__link">
+    Format Line
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -592,50 +742,147 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://gitlab.com/kantai/multimeter/edit/master/docs/storages/influx.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://gitlab.com/kantai/multimeter/edit/master/docs/storages/file.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
-<h1 id="influxdbstorage">InfluxDBStorage<a class="headerlink" href="#influxdbstorage" title="Permanent link">🔗</a></h1>
-<p>The <a href="../../api/#multimeter.storages.influx.InfluxDBStorage"><code>multimeter.storages.influx.InfluxDBStorage</code></a>
-exports all <code>Result</code> to an Influx time series database.</p>
-<p><code>InfluxDBStorage</code> uses the official <a href="https://github.com/influxdata/influxdb-client-python"><code>influxdb_client</code></a>
-library and therefore, depends on its package to be installed. It can be automatically
-installed alongside <code>multimeter</code> by installing its optional extra <code>[influxdb]</code>:</p>
-<div class="highlight"><pre><span></span><code>pip install multimeter<span class="o">[</span>influxdb<span class="o">]</span>
-</code></pre></div>
+<h1 id="filestorage">FileStorage<a class="headerlink" href="#filestorage" title="Permanent link">🔗</a></h1>
+<p>The <a href="../../api/#multimeter.storages.file.FileStorage"><code>multimeter.storages.file.FileStorage</code></a>
+exports the measurement <code>Result</code>s to the file system. Currently, it supports the different formats
+JSON and Line.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">🔗</a></h2>
-<p>All configuration values are given as arguments to the
-<a href="../../api/#multimeter.storages.influx.InfluxDBStorage.__init__()">InfluxDBStorage constructor <code>__init__()</code></a>
-<code>token</code> is required and given as a positional argument, where all other values of the
-configuration are optional keyword values.</p>
-<h3 id="token">token<a class="headerlink" href="#token" title="Permanent link">🔗</a></h3>
-<p>The <code>InfluxDBStorage</code> requires an authentication <code>token</code> to be able to write data to
-the database. This token can be manually created in the InfluxDB user interface or in
-an automated fashion using InfluxDB clients.</p>
-<h3 id="url">url<a class="headerlink" href="#url" title="Permanent link">🔗</a></h3>
-<p>The <code>url</code> value defines the URL of the InfluxDB server instance to which the data will
-be sent. The <code>url</code> can be left out in which case, the URL of a server running on
-localhost with the default port is being use: 'http://localhost:8086'</p>
-<h3 id="org">org<a class="headerlink" href="#org" title="Permanent link">🔗</a></h3>
-<p>Every data in an InfluxDB is assigned to be owned by an organization. The
-organizations are defined by the InfluxDB server and can be managed using its UI.
-As a default multimeter uses an organization 'kantai', but if this organization is
-not defined, InfluxDB will send an error 'organization name \"kantai\" not found'.</p>
-<h3 id="bucket">bucket<a class="headerlink" href="#bucket" title="Permanent link">🔗</a></h3>
-<p>In InfluxDB data can be stored in different buckets. The name of the <code>bucket</code> can be
-specified as part of the configuration. If no value is given for <code>bucket</code>, multimeter
-expects a bucket with name <code>multimeter</code>.</p>
+<h3 id="save_directory-pathlibpath">save_directory (pathlib.Path)<a class="headerlink" href="#save_directory-pathlibpath" title="Permanent link">🔗</a></h3>
+<p>The only required configuration for its constructor
+<a href="../../api/#multimeter.storages.file.FileStorage.__init__"><code>multimeter.storages.file.FileStorage.__init__</code></a>
+is a path to a directory, where the files will be stored. The path should be a
+<code>pathlib.Path</code> instance pointing to a directory, that is automatically created if not
+existing.</p>
+<h3 id="file_format-multimeterfileformat">file_format (multimeter.FileFormat)<a class="headerlink" href="#file_format-multimeterfileformat" title="Permanent link">🔗</a></h3>
+<p>An instance of
+<a href="../../api/#multimeter.storages.file.FileFormat"><code>multimeter.storages.file.FileFormat</code></a>
+that should be used for storing the results. Currently, multimeter supports
+<code>multimeter.storages.file.JsonFormat</code> and <code>multimeter.storages.file.LineFormat</code>.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">🔗</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">multimeter</span> <span class="kn">import</span> <span class="n">Multimeter</span><span class="p">,</span> <span class="n">ResourceProbe</span>
-<span class="kn">from</span> <span class="nn">multimeter.storages.influx</span> <span class="kn">import</span> <span class="n">InfluxDBStorage</span>
+<span class="kn">from</span> <span class="nn">multimeter.storages.file</span> <span class="kn">import</span> <span class="n">FileStorage</span><span class="p">,</span> <span class="n">JsonFormat</span>
 
-<span class="n">meter</span> <span class="o">=</span> <span class="n">Multimeter</span><span class="p">(</span><span class="n">ResourceProbe</span><span class="p">(),</span> <span class="n">storage</span><span class="o">=</span><span class="n">InfluxDBStorage</span><span class="p">(</span>
-    <span class="s1">&#39;IWWNNY1xWuyxKCoc_KiucH-u9E6hqeXFXzi49sKzQY5VhZgdwqbrMJCF_z7xQocd_20xuuH1kMNgRnPzrvmIOA==&#39;</span><span class="p">,</span>
-    <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://influxdb2.my.tld:8086&#39;</span><span class="p">,</span> <span class="n">org</span><span class="o">=</span><span class="s1">&#39;my-org&#39;</span><span class="p">,</span> <span class="n">bucket</span><span class="o">=</span><span class="s1">&#39;my-bucket&#39;</span><span class="p">,</span>
+<span class="n">meter</span> <span class="o">=</span> <span class="n">Multimeter</span><span class="p">(</span><span class="n">ResourceProbe</span><span class="p">(),</span> <span class="n">storage</span><span class="o">=</span><span class="n">FileStorage</span><span class="p">(</span>
+    <span class="n">save_directory</span><span class="o">=</span><span class="s1">&#39;/path/to/my/results&#39;</span><span class="p">,</span>
+    <span class="n">file_format</span><span class="o">=</span><span class="n">JsonFormat</span><span class="p">(),</span>
 <span class="p">))</span>
 </code></pre></div>
+<h2 id="format-json">Format JSON<a class="headerlink" href="#format-json" title="Permanent link">🔗</a></h2>
+<p>The <a href="../../api/#multimeter.storages.file.JsonFormat">multimeter.JsonFormat</a>
+stores the result as a single JSON object which contains meta-data about the
+measurement as well as the measured values. This file format contains all the
+data created and known to multimeter and is therefore best suited for manual
+processing.</p>
+<p>The json structure is a single object with fixed attributes:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;measure-id&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;meta_data&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;cpu_rate_user&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The rate of the time where the CPU is executing user-space code.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value_type&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;min_value&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+        <span class="nt">&quot;max_value&quot;</span><span class="p">:</span> <span class="mf">1.0</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;cpu_rate_system&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The rate of the time where the CPU is executing system code.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value_type&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;min_value&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+        <span class="nt">&quot;max_value&quot;</span><span class="p">:</span> <span class="mf">1.0</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;subjects&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;process&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The current running process.&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;measures&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;process.cpu_rate_user&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;subject&quot;</span><span class="p">:</span> <span class="s2">&quot;process&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;metric&quot;</span><span class="p">:</span> <span class="s2">&quot;cpu_rate_user&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;process.cpu_rate_system&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;subject&quot;</span><span class="p">:</span> <span class="s2">&quot;process&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;metric&quot;</span><span class="p">:</span> <span class="s2">&quot;cpu_rate_system&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;points&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;datetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-11-27T18:43:51.033+00:00&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;process.cpu_rate_user&quot;</span><span class="p">:</span> <span class="mf">0.8287030088703983</span><span class="p">,</span>
+        <span class="nt">&quot;process.cpu_rate_system&quot;</span><span class="p">:</span> <span class="mf">0.2367722882486841</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;datetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-11-27T18:43:52.039+00:00&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;process.cpu_rate_user&quot;</span><span class="p">:</span> <span class="mf">1.0000167626132233</span><span class="p">,</span>
+        <span class="nt">&quot;process.cpu_rate_system&quot;</span><span class="p">:</span> <span class="mf">5.469854836835e-05</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;marks&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;datetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-11-27T18:43:51.733+00:00&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Call X&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="identifier">identifier<a class="headerlink" href="#identifier" title="Permanent link">🔗</a></h3>
+<p>The identifier for the measurement, which created this result.</p>
+<h3 id="tags">tags<a class="headerlink" href="#tags" title="Permanent link">🔗</a></h3>
+<p>Tags are user-defined when the measurement is created.</p>
+<h3 id="meta_data">meta_data<a class="headerlink" href="#meta_data" title="Permanent link">🔗</a></h3>
+<p>Contains the meta data that can be added to the result using <code>add_meta_data()</code>.</p>
+<h3 id="schema">schema<a class="headerlink" href="#schema" title="Permanent link">🔗</a></h3>
+<p>The schema contains a description of the different values that are measured.
+Their definition originates the metrics, subjects and measures:</p>
+<h4 id="metrics">metrics<a class="headerlink" href="#metrics" title="Permanent link">🔗</a></h4>
+<p>A list of objects describing the metrics that are included in the results. Each object
+contains the attributes "key", "description", "unit", "value_type", "min_value" and
+"max_value".</p>
+<h4 id="subjects">subjects<a class="headerlink" href="#subjects" title="Permanent link">🔗</a></h4>
+<p>A list of objects where each object represents a subject from which the metrics were
+sampled. Each object contains a "key" and a human-readable "description".</p>
+<h4 id="measure">measure<a class="headerlink" href="#measure" title="Permanent link">🔗</a></h4>
+<p>A list of objects representing individual measures describing which metric was sampled
+for which subject. Each object contains a "key" and references to a "subject" and a
+"metric".</p>
+<h3 id="points">points<a class="headerlink" href="#points" title="Permanent link">🔗</a></h3>
+<p>The list of individual measuring points. Each point has an attribute "datetime"
+containing the datetime (UTC) the values were measured and an attribute "values"
+with a javascript object, where the keys reference the measures and the values
+contain the measured values at this time.</p>
+<h3 id="marks">marks<a class="headerlink" href="#marks" title="Permanent link">🔗</a></h3>
+<p>The list of timestamps with a mark. Each mark has an attribute "datetime"
+containing the datetime (UTC) and an attribute "label" which contains the
+label of the mark, that was given when the mark was made.</p>
+<h2 id="format-line">Format Line<a class="headerlink" href="#format-line" title="Permanent link">🔗</a></h2>
+<p>This <a href="../../api/#multimeter.storages.file.LineFormat">format</a> implements the
+<a href="https://docs.influxdata.com/influxdb/v2.1/reference/syntax/line-protocol/">line protocol</a>
+that is mainly used by <a href="https://www.influxdata.com">InfluxDB</a> and uses the '.line'
+file extension.  It contains only the measured values with timestamp, tags and
+measurement id but lacks all the schema related information as well as the marks.
+It is recommended to be used for importing the results into InfluxDB.</p>
 
   <hr>
 <div class="md-source-file">
@@ -659,7 +906,7 @@ expects a bucket with name <code>multimeter</code>.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../file/" class="md-footer__link md-footer__link--prev" aria-label="Previous: File" rel="prev">
+        <a href="../../probes/resource/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Resource" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -668,20 +915,20 @@ expects a bucket with name <code>multimeter</code>.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              File
+              Resource
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../visualization/" class="md-footer__link md-footer__link--next" aria-label="Next: Visualization" rel="next">
+        <a href="../influx/" class="md-footer__link md-footer__link--next" aria-label="Next: InfluxDB" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Visualization
+              InfluxDB
             </div>
           </div>
           <div class="md-footer__button md-icon">

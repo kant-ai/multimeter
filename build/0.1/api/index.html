@@ -334,8 +334,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../storages/jsonfile/" class="md-nav__link">
-        JsonFile
+      <a href="../storages/file/" class="md-nav__link">
+        File
       </a>
     </li>
   
@@ -2797,7 +2797,7 @@ result:</p>
 
 
 <h4 id="multimeter.multimeter.Multimeter.__init__" class="doc doc-heading">
-<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">probes</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">cycle_time</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">storage</span><span class="o">=&lt;</span><span class="n">multimeter</span><span class="o">.</span><span class="n">storages</span><span class="o">.</span><span class="n">dummy</span><span class="o">.</span><span class="n">DummyStorage</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7f76ff562fd0</span><span class="o">&gt;</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">probes</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">cycle_time</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">storage</span><span class="o">=</span><span class="n">DummyStorage</span><span class="p">())</span></code>
 
   <span class="doc doc-properties">
       <small class="doc doc-property doc-property-special"><code>special</code></small>
@@ -2839,7 +2839,7 @@ Defaults to <code>1.0</code>. which means measure every second.</p></td>
         <td><p>A instance of <code>Storage</code> that takes
 care of storing the final result. Defaults to an implementation that
 doesn't do anything.</p></td>
-        <td><code>&lt;multimeter.storages.dummy.DummyStorage object at 0x7f76ff562fd0&gt;</code></td>
+        <td><code>DummyStorage()</code></td>
       </tr>
   </tbody>
 </table>
@@ -4645,6 +4645,7 @@ DummyStorage            (<a title="multimeter.storages.base.Storage" href="#mult
 
 
   <div class="doc doc-children">
+
 
 
 

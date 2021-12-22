@@ -410,8 +410,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../storages/jsonfile/" class="md-nav__link">
-        JsonFile
+      <a href="../storages/file/" class="md-nav__link">
+        File
       </a>
     </li>
   
@@ -609,7 +609,7 @@ using pip:</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CPU avg values: </span><span class="si">{</span><span class="n">measurement</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s1">&#39;process.cpu_rate_user&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="automatically-store-the-results-as-json">Automatically store the results as JSON<a class="headerlink" href="#automatically-store-the-results-as-json" title="Permanent link">🔗</a></h2>
-<div class="highlight"><pre><span></span><code><span class="n">mm</span><span class="o">.</span><span class="n">set_storage</span><span class="p">(</span><span class="n">multimeter</span><span class="o">.</span><span class="n">JsonFileStorage</span><span class="p">(</span><span class="n">save_directory</span><span class="o">=</span><span class="s1">&#39;/my/directory&#39;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">mm</span><span class="o">.</span><span class="n">set_storage</span><span class="p">(</span><span class="n">multimeter</span><span class="o">.</span><span class="n">FileStorage</span><span class="p">(</span><span class="n">save_directory</span><span class="o">=</span><span class="s1">&#39;/my/directory&#39;</span><span class="p">,</span> <span class="n">file_format</span><span class="o">=</span><span class="n">multimeter</span><span class="o">.</span><span class="n">JsonFormat</span><span class="p">()))</span>
 </code></pre></div>
 <h2 id="where-to-go-from-here">Where to go from here?<a class="headerlink" href="#where-to-go-from-here" title="Permanent link">🔗</a></h2>
 <p>Read the <a href="../user_guide/">user guide</a> for some more in-depth explanation about multimeter.</p>
@@ -619,7 +619,7 @@ the individual classes with their respective metrics can be found in the documen
 <li>Which metrics are available?
     <a href="../probes/resource/"><code>multimeter.probe.ResourceProbe</code></a></li>
 <li>Where can I store the results?
-    <a href="../storages/jsonfile/"><code>multimeter.storage.JsonFileStorage</code></a></li>
+    <a href="../storages/file/"><code>multimeter.storages.file.FileStorage</code></a></li>
 <li>Creating your own probe:
     <a href="../user_guide/#implementing-custom-probe">How to write your own probe?</a></li>
 <li>Creating your own storage:
@@ -631,7 +631,7 @@ the individual classes with their respective metrics can be found in the documen
   <small>
     
       Last update:
-      2021-11-29
+      2021-12-22
     
   </small>
 </div>

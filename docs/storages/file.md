@@ -1,15 +1,44 @@
-# JsonFileStorage
+# FileStorage
 
-The [`multimeter.storages.json.JsonFileStorage`](../../api/#multimeter.storages.json.JsonFileStorage)
-exports all `Result` to the file system using JSON.
+The [`multimeter.storages.file.FileStorage`](../../api/#multimeter.storages.file.FileStorage)
+exports the measurement `Result`s to the file system. Currently, it supports the different formats
+JSON and Line.
 
 ## Configuration
 
-The only configuration that
-[`multimeter.storages.json.JsonFileStorage.__init__`](../../api/#multimeter.storages.json.JsonFileStorage.__init__)
-takes is a path to a directory, where the JSON files will be stored.
+### save_directory (pathlib.Path)
+The only required configuration for its constructor
+[`multimeter.storages.file.FileStorage.__init__`](../../api/#multimeter.storages.file.FileStorage.__init__)
+is a path to a directory, where the files will be stored. The path should be a
+`pathlib.Path` instance pointing to a directory, that is automatically created if not
+existing.
 
-## Format
+### file_format (multimeter.FileFormat)
+
+An instance of
+[`multimeter.storages.file.FileFormat`](../../api/#multimeter.storages.file.FileFormat)
+that should be used for storing the results. Currently, multimeter supports
+`multimeter.storages.file.JsonFormat` and `multimeter.storages.file.LineFormat`.
+
+## Example
+
+```python
+from multimeter import Multimeter, ResourceProbe
+from multimeter.storages.file import FileStorage, JsonFormat
+
+meter = Multimeter(ResourceProbe(), storage=FileStorage(
+    save_directory='/path/to/my/results',
+    file_format=JsonFormat(),
+))
+```
+
+## Format JSON
+
+The [multimeter.JsonFormat](../../api/#multimeter.storages.file.JsonFormat)
+stores the result as a single JSON object which contains meta-data about the
+measurement as well as the measured values. This file format contains all the
+data created and known to multimeter and is therefore best suited for manual
+processing.
 
 The json structure is a single object with fixed attributes:
 
@@ -129,3 +158,12 @@ contain the measured values at this time.
 The list of timestamps with a mark. Each mark has an attribute "datetime"
 containing the datetime (UTC) and an attribute "label" which contains the
 label of the mark, that was given when the mark was made.
+
+## Format Line
+
+This [format](../../api/#multimeter.storages.file.LineFormat) implements the
+[line protocol](https://docs.influxdata.com/influxdb/v2.1/reference/syntax/line-protocol/)
+that is mainly used by [InfluxDB](https://www.influxdata.com) and uses the '.line'
+file extension.  It contains only the measured values with timestamp, tags and
+measurement id but lacks all the schema related information as well as the marks.
+It is recommended to be used for importing the results into InfluxDB.

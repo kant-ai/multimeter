@@ -10,7 +10,7 @@ nav:
   - Probes:
       - Resource: probes/resource.md
   - Storages:
-      - JsonFile: storages/jsonfile.md
+      - File: storages/file.md
       - InfluxDB: storages/influx.md
   - Visualization: visualization.md
   - FAQ: faq.md

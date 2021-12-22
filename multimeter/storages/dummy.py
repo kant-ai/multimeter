@@ -7,3 +7,6 @@ class DummyStorage(Storage):
 
     def store(self, result):
         pass
+
+    def __repr__(self):
+        return 'DummyStorage()'

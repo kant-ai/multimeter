@@ -41,7 +41,7 @@ print(f"CPU avg values: {measurement.result.values('process.cpu_rate_user')}")
 ## Automatically store the results as JSON
 
 ```python
-mm.set_storage(multimeter.JsonFileStorage(save_directory='/my/directory'))
+mm.set_storage(multimeter.FileStorage(save_directory='/my/directory', file_format=multimeter.JsonFormat()))
 ```
 
 ## Where to go from here?
@@ -54,7 +54,7 @@ the individual classes with their respective metrics can be found in the documen
 - Which metrics are available?
     [`multimeter.probe.ResourceProbe`](../probes/resource/)
 - Where can I store the results?
-    [`multimeter.storage.JsonFileStorage`](../storages/jsonfile/)
+    [`multimeter.storages.file.FileStorage`](../storages/file/)
 - Creating your own probe:
     [How to write your own probe?](../user_guide/#implementing-custom-probe)
 - Creating your own storage:

@@ -155,7 +155,7 @@ allows to identify individual measurements later on. If `identifier` is provided
 value is used as a (unique) identifier for this measurement:
 
 ```python
-measurement = mm.measure(identfieer='my-measurement')
+measurement = mm.measure(identifier='my-measurement')
 ```
 
 Additionally, arbitrary keyword arguments with string values can be given. Those
@@ -164,7 +164,7 @@ measurements or contain additional user-defined data:
 
 ```python
 measurement = mm.measure(
-    identfieer='my-measurement',
+    identifier='my-measurement',
     my_tag='tag-value',
 )
 ```
